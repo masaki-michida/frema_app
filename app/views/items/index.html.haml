@@ -1,2 +1,50 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
+.login
+   = link_to "ログイン", new_user_session_path, class: 'post' 
+   = link_to "新規登録", new_user_registration_path, class: 'post'
+   %img(src="/site-logo_with_logo-05541314c14ec45997862f221cfbcebc5103aae0426451047914e06bfb0f4679.png" alt="fdfsdfsdf")
+
+   %section.drawer-main.drawer-default
+   %nav.drawer-nav
+      .user-item
+         = link_to('', {})
+         .cl_sb_mypage.ga-class.ga-drawer-mypage{:href => "https://fril.jp/shop/db1c0547da689f8d5ffdf91dea287e93", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_mypage');"}
+         %img.img-circle.img-user-icon{:alt => "29yuyu", :src => "https://asset.fril.jp/assets/new_web/icon_user-9e49e957def667b1abdaae57b9e81d66c31b27f8559d80e2eb682cfbb24e18cd.png"}>/
+         29yuyuさんのマイページ
+      .sidebar
+         %section
+         %h2.sidebar__title マイページメニュー
+         .list-group
+            %a.list-group-item{:href => "https://fril.jp/notification", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_notification');"} お知らせ
+            %a.list-group-item{:href => "https://fril.jp/likes", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_likes');"} いいねした商品
+         %section
+         %h2.sidebar__title 商品を出品する
+         .list-group
+            %a.list-group-item.ga-class.ga-drawer-item-new{:href => "https://fril.jp/item/new", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_exhibit',{dimension8: 'registered'});"} 商品を出品する
+            %a.list-group-item.ga-class.ga-drawer-sell-item{:href => "https://fril.jp/sell"} 出品した商品
+            %a.list-group-item.ga-class.ga-drawer-shop{:href => "https://fril.jp/shop/db1c0547da689f8d5ffdf91dea287e93", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_myshop');"} 自分のショップを見る
+         %section
+         %h2.sidebar__title 商品を購入する
+         .list-group
+            %a.list-group-item.ga-class.ga-drawer-buy{:href => "https://fril.jp/buy", :onclick => "ga('send', 'event','ui_action', 'menu', 'click_drawer_orders');"} 購入した商品
+            %a.list-group-item.ga-class.ga-drawer-history-item{:href => "https://fril.jp/history", :onclick => "ga('send', 'event','ui_action', 'menu', 'click_drawer_watch_logs');"}
+               %span 最近見た商品
+               .list-group-item-images
+               %img.cl_sb_recently_item.img-responsive.lazy{:alt => "rady デニム", :src => "https://img.fril.jp/img/331339717/m/933538527.jpg?1591099783"}/
+               %noscript
+                  %img{:alt => "rady デニム", :src => "https://img.fril.jp/img/331339717/m/933538527.jpg?1591099783"}/
+               %img.cl_sb_recently_item.img-responsive.lazy{:alt => "☆貨幣☆記念硬貨☆100円☆東京オリンピック☆1964年☆昭和39年☆3枚セット", :src => "https://img.fril.jp/img/331293385/m/933407345.JPG?1591089537"}/
+               %noscript
+                  %img{:alt => "☆貨幣☆記念硬貨☆100円☆東京オリンピック☆1964年☆昭和39年☆3枚セット", :src => "https://img.fril.jp/img/331293385/m/933407345.JPG?1591089537"}/
+            %a.list-group-item.ga-class.ga-drawer-comment-item{:href => "https://fril.jp/comment", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_comments');"} コメントした商品
+         %section
+         %h2.sidebar__title 設定・ヘルプ・その他
+         .list-group
+            %a.list-group-item.ga-class.ga-drawer-balance{:href => "https://fril.jp/balance", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_balance');"} 売上・ポイント管理
+            %a.list-group-item.ga-class.ga-drawer-coupons{:href => "https://fril.jp/coupons", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_coupons');"} クーポンの確認
+            %a.list-group-item.ga-class.ga-drawer-settings{:href => "https://fril.jp/settings", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_setting');"} 設定
+            %a.list-group-item.ga-class.ga-drawer-inquiry{:href => "https://fril.jp/inquiry", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_inquiry')"} お問い合わせ
+            %a.list-group-item.ga-class.ga-drawer-faq-guide{:href => "https://faq.fril.jp", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_guide');"} ラクマ公式ガイド
+            %a.list-group-item.ga-class.ga-drawer-guide-first{:href => "https://faq.fril.jp/guide/first/", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_firsttime_guide');"} はじめての方へ
+            %a.list-group-item.ga-class.ga-drawer-logout{:href => "https://fril.jp/logout", :onclick => "ga('send', 'event', 'ui_action', 'menu', 'click_drawer_logout');"} ログアウト
+
+
