@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_121546) do
+ActiveRecord::Schema.define(version: 2020_06_08_122051) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "sub_category_id"
+    t.index ["sub_category_id"], name: "fk_rails_22bc6bab91"
+  end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -71,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_121546) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "sub_categories"
   add_foreign_key "items", "users"
   add_foreign_key "sub_categories", "top_categories"
 end
