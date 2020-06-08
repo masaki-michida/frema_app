@@ -1,13 +1,21 @@
 !!!
 %html
   %head
+<<<<<<< HEAD
     %meta{content:"text/html; charset=UTF-8", "http-equiv"=>"Content-Type"}/
+=======
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+>>>>>>> master
     %title FremaApp
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+<<<<<<< HEAD
     = render "layouts/header"
     = yield
     = render "layouts/footer"
+=======
+    = yield
+>>>>>>> master
