@@ -16,7 +16,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
     end
     add_foreign_key :items, :users
     add_foreign_key :items, :categories
-    add_foreign_key :items, :brand
+    add_foreign_key :items, :brands
     add_foreign_key :items, :prefectures
   end
 end
