@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .main
   %section.main__top
     .main__top__content
@@ -177,13 +176,3 @@
   .main__purchaseBtn
     %span.main__purchaseBtn__text 出品する
     = image_tag 'camera-logo.svg', alt: 'camara-logo.svg', class: 'main__purchaseBtn--img'
-=======
-%h1 トップページ
-- if user_signed_in?
-  %h2 マイページ
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
-- else
-  %h2 ログインしていません
-  = link_to "新規登録", new_user_registration_path
-  = link_to "ログイン", new_user_session_path
->>>>>>> master
