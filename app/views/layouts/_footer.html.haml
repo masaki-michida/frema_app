@@ -1,32 +1,32 @@
 .footer
-  %ul.contents
-    %li.content
-      %h2.content__head FURIMAについて
+  %ul.footer__contents
+    %li.footer__contents__content
+      %h2.footer__contents__content__head FURIMAについて
+      %ul.footer__contents__content__ul
+        %li
+          %a{href: '#'} 会社概要（運営会社）
+        %li
+          %a{href: "#"} プライバシーポリシー
+        %li
+          %a{href: "#"} FURIMA利用規約
+        %li
+          %a{href: "#"} ポイントに関する特約
+    %li.footer__contents__content
+      %h2.footer__contents__content__head FURIMAを見る
       %ul
         %li
-          %a{:href => "#"} 会社概要（運営会社）
+          %a{href: "#"} カテゴリー一覧
         %li
-          %a{:href => "#"} プライバシーポリシー
-        %li
-          %a{:href => "#"} FURIMA利用規約
-        %li
-          %a{:href => "#"} ポイントに関する特約
-    %li.content
-      %h2.content__head FURIMAを見る
+          %a{href: "#"} ブランド一覧
+    %li.footer__contents__content
+      %h2.footer__contents__content__head ヘルプ＆ガイド
       %ul
         %li
-          %a{:href => "#"} カテゴリー一覧
+          %a{href: "#"} FURIMAガイド
         %li
-          %a{:href => "#"} ブランド一覧
-    %li.content
-      %h2.content__head ヘルプ＆ガイド
-      %ul
+          %a{href: "#"} FURIMAロゴ利用ガイドライン
         %li
-          %a{:href => "#"} FURIMAガイド
-        %li
-          %a{:href => "#"} FURIMAロゴ利用ガイドライン
-        %li
-          %a{:href => "#"} お知らせ
+          %a{href: "#"} お知らせ
   .footer__logo
-    = link_to(image_tag('frema-logo-normal'),'#')
-  %p © FURIMA
+    = link_to(image_tag('frema-logo-white'),'#')
+  %p.footer__copyright © FURIMA
