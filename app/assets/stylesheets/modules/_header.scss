@@ -1,0 +1,137 @@
+.Header{
+
+  ul li {
+    list-style: none;
+  }
+
+  a {
+    color: $black;
+    text-decoration: none;
+  }
+
+  img{
+    width: 100%;
+    vertical-align: bottom;
+  }
+
+  padding: 0 60px;
+
+  &__inner{
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: $center;
+    padding: 15px 0 0;
+
+    &__search{
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      &__logo{
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        &--a{
+          width: 140px;
+          display: block;
+        }
+      }
+
+      &__Box{
+        margin-left: auto;
+        @include wid_hei(100%,36px);
+        margin-bottom: 5px;
+
+        &--form{
+          display: flex;
+          margin-bottom: 5px;
+        }
+
+        &--input{
+          @include wid_hei(calc(100% - 26px),36px);
+          padding: 0 0 0 5px;
+        }
+
+        &--btn{
+          width: 36px;
+          border: 0;
+          cursor: pointer;
+          padding: 8px;
+          background-color: $light-blue;
+        }
+
+      }
+    }
+
+    &__nav{
+      font-size: 14px;
+      display: flex;
+      margin-bottom: 10px;
+      height: 32px;
+
+      &__Llists{
+        position: relative;
+        display: flex;
+        line-height: 32px;
+        &__item{
+
+          &--cat{
+            color: $black;
+            text-decoration: none;
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
+            padding-right: 30px;
+          }
+
+          .displayNone{
+            display: none;
+          }
+
+          .tree{
+            z-index: 2;
+            position: absolute;
+            background-color: #fff;
+            width: 240px;
+            top: 40px;
+            
+            &__categoryTree{
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+            }
+          }
+
+        }
+
+        a:hover{
+          color: #ffb340;;
+        }
+
+      }
+
+      &__Rlists{
+        margin-left: auto;
+        display: flex;
+
+        &--login{
+          
+          padding: 0 0 0 16px;
+          line-height: 32px;
+        }
+
+        &--new{
+          
+          padding: 0 0 0 16px;
+          line-height: 32px;
+        }
+
+      }
+
+    }
+
+  }
+}
+

@@ -1,0 +1,56 @@
+.footer{
+
+  a{
+    color: $white;
+    text-decoration: none;
+    
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  img{
+    width: 100%;
+    vertical-align: bottom;
+  }
+
+  padding: 60px 0;
+  color: $white;
+  background-color: #272727;
+  text-align: center;
+  
+  &__contents{
+    max-width: 840px;
+    margin: $center;
+    display: flex;
+
+    &__content{
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+
+      &__head{
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      ul{
+        
+        font-size: 12px;
+        line-height: 32px;
+      }
+    }
+  }
+  &__logo{
+    max-width: 160px;
+    width: 100%;
+    margin: $center;
+  }
+
+  &__copyright{
+    font-size: 14px;
+  }
+
+}
