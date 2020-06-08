@@ -75,3 +75,6 @@ end
 gem 'haml-rails'
 gem 'devise'
 gem 'mini_racer'
+gem 'erb2haml'
+gem 'jquery-rails'
+gem 'font-awesome-sass'
