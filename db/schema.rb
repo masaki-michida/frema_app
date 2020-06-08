@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_120914) do
+ActiveRecord::Schema.define(version: 2020_06_08_121546) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 2020_06_08_120914) do
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+  end
+
+  create_table "sub_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "top_category_id"
+    t.string "name"
+    t.index ["top_category_id"], name: "fk_rails_7b09ea5b1a"
   end
 
   create_table "top_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,4 +72,5 @@ ActiveRecord::Schema.define(version: 2020_06_08_120914) do
   end
 
   add_foreign_key "items", "users"
+  add_foreign_key "sub_categories", "top_categories"
 end
