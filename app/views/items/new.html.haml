@@ -1,0 +1,9 @@
+.newmain
+  = form_with(url: '/') do
+    .newmain__forms__formgroup
+      .newmain__forms__formgroup__title
+        %label.newmain__forms__formgroup__title--label 商品名
+        %span.newmain__forms__formgroup__title--require *必須
+        = text_field_tag('item[:name]',nil,placeholder: '40文字まで',id: 'name',maxlength: '40')
+
+

@@ -1,0 +1,16 @@
+.newmain{
+  background-color: red;
+  padding: 0 0 0 40px;
+
+  &__container{
+    width: auto;
+    max-width: 1148px;
+
+    &__row{
+      margin-left: -4px;
+      margin-right: -4px;
+    }
+
+  }
+
+}
