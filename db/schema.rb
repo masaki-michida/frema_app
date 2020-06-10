@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_122051) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "sub_category_id"
+    t.string "name"
     t.index ["sub_category_id"], name: "fk_rails_22bc6bab91"
   end
 
