@@ -4,9 +4,9 @@
       %h1.Header__inner__search__logo
         = link_to(image_tag('frema-logo-normal.svg'),'#',class: 'Header__inner__search__logo--a')
       .Header__inner__search__Box
-        = form_with(url: '/',class: 'Header__inner__search__Box--form')
-        = text_field_tag(:search,nil,placeholder:"キーワードから探す",class: 'Header__inner__search__Box--input')
-        = button_tag((image_tag 'search-logo.svg'),name: 'search',class: 'Header__inner__search__Box--btn')
+        = form_with(url: '/',class: 'Header__inner__search__Box--form') do
+          = text_field_tag(:search,nil,placeholder:"キーワードから探す",class: 'Header__inner__search__Box--input')
+          = button_tag((image_tag 'search-logo.svg'),name: 'search',class: 'Header__inner__search__Box--btn')
       %ul.Heder__inner__search__resultLists
     .Header__inner__nav
       %ul.Header__inner__nav__Llists

@@ -1,9 +1,44 @@
 .newmain
-  = form_with(url: '/') do
-    .newmain__forms__formgroup
-      .newmain__forms__formgroup__title
-        %label.newmain__forms__formgroup__title--label 商品名
-        %span.newmain__forms__formgroup__title--require *必須
-        = text_field_tag('item[:name]',nil,placeholder: '40文字まで',id: 'name',maxlength: '40')
-
-
+  .newmain__container
+    .newmain__container__group
+      .newmain__container__group__row
+        = render 'layouts/sidemenu'
+        .newmain__container__group__row__main
+          = form_with do |f|
+            .newmain__container__group__row__main__images
+              .newmain__container__group__row__main__images__content
+                .newmain__container__group__row__main__images__content__preview
+                  = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
+                .newmain__container__group__row__main__images__content__picker
+                  = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
+                    = f.file_field("items[:image]",id:"item_image")
+              .newmain__container__group__row__main__images__content
+                .newmain__container__group__row__main__images__content__preview
+                  = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
+                .newmain__container__group__row__main__images__content__picker
+                  = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
+                    = f.file_field("items[:image]",id:"item_image")
+              .newmain__container__group__row__main__images__content
+                .newmain__container__group__row__main__images__content__preview
+                  = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
+                .newmain__container__group__row__main__images__content__picker
+                  = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
+                    = f.file_field("items[:image]",id:"item_image")
+              .newmain__container__group__row__main__images__content
+                .newmain__container__group__row__main__images__content__preview
+                  = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
+                .newmain__container__group__row__main__images__content__picker
+                  = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
+                    = f.file_field("items[:image]",id:"item_image")
+            .newmain__container__group__row__main__forms
+              .newmain__container__group__row__main__forms__title
+                %label.newmain__container__group__row__main__forms__title--label 商品名
+                %span.newmain__container__group__row__main__forms__title--require ※必須
+              .newmain__container__group__row__main__forms__form
+                = f.text_field("items[:name]", maxlength: 40, placeholder: "40文字まで",id: "item_name")
+  %table{border: "3"}
+    %tbody
+      %tr
+        %td 表の内容
+      %tr
+        %td 表を
