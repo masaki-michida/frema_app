@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_06_08_151305) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -18,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_151305) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "sub_category_id"
+    t.string "name"
     t.index ["sub_category_id"], name: "fk_rails_22bc6bab91"
   end
 
@@ -83,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_151305) do
 
   add_foreign_key "categories", "sub_categories"
   add_foreign_key "items", "categories"
+
   add_foreign_key "items", "users"
   add_foreign_key "sub_categories", "top_categories"
 end
