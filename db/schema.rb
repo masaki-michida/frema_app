@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_122051) do
     t.index ["user_id"], name: "fk_rails_d4b6334db2"
   end
 
+
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
   end
