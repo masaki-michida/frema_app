@@ -1,5 +1,6 @@
 .newmain{
   background-color: palegreen;
+  font-weight: lighter;
 
 
   label{
@@ -14,6 +15,7 @@
     width: auto;
     max-width: 1148px;
     margin: $center;
+    font-size: 15px;
 
     &__group{
       margin-bottom: 16px;
@@ -85,35 +87,80 @@
 
           &__forms{
 
-            display: flex;
-            align-items: center;
             
-            &__title{
 
-              width: 25%;
+            &__wrapper{
 
-              &--label{
+              align-items: left;
+              display: flex;
+              margin-bottom: 16px;
+              
+              &::before{
+                content: " ";
+                display: table;
+              }
 
-                padding-top: 7px;
+              &::after{
+                content: " ";
+                display: table;
+              }
+
+              &__title{
+
+                width: 25%;
+
+                &--label{
+
+                  padding-top: 7px;
+
+                }
+
+                &--require{
+                  color: #fa4141;
+                  margin-left: 8px;
+                  font-size: 14px;
+                }
+              }
+
+              &__form{
+                width: 75%;
+
+                #item_name{
+                  padding: 6px 12px;
+                  width: 100%;
+                  border: 1px solid gray;
+                  box-shadow: none;
+                  height: 36px;
+                }
+
+                #item_statement{
+                  @extend #item_name;
+                  height: 164px;
+                }
+
+                #confirm{
+                  @include wid_hei(334px,40px);
+                }
+
+                select{
+                  @extend #item_name;
+                }
+
+                ::placeholder{
+                  opacity: 50%;
+                  // color: $white;
+    
+                }
 
               }
 
-              &--require{
-                color: #fa4141;
-                margin-left: 8px;
-                font-size: 14px;
-              }
             }
 
-            &__form{
-              width: 75%;
-
-              ::placeholder{
-                opacity: 50%;
-                padding: 6px 12px;
-  
-              }
-
+            &__separater{
+              margin-top: 24px;
+              display: block;
+              border-bottom: 1px solid #ddd;
+              margin: 32px 0;
             }
 
           }
