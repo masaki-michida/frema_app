@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_06_08_151305) do
+ActiveRecord::Schema.define(version: 2020_06_09_053542) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -27,17 +26,19 @@ ActiveRecord::Schema.define(version: 2020_06_08_151305) do
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.text "statement", null: false
-    t.bigint "category_id"
+    t.bigint "category_id", null: false
     t.bigint "brand_id"
     t.integer "condition", null: false
     t.integer "delivery_fee", null: false
-    t.bigint "prefecture", null: false
+    t.bigint "prefecture_id", null: false
     t.integer "lag", null: false
     t.integer "price", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "fk_rails_36708b3aa6"
     t.index ["category_id"], name: "fk_rails_89fb86dc8b"
+    t.index ["prefecture_id"], name: "fk_rails_5fb69fcd50"
     t.index ["user_id"], name: "fk_rails_d4b6334db2"
   end
 
@@ -69,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_151305) do
     t.string "to_family_ch", default: "", null: false
     t.string "to_first_ch", default: "", null: false
     t.string "zip", null: false
-    t.integer "prefectures", null: false
+    t.bigint "prefecture_id", null: false
     t.string "adress_city", null: false
     t.string "adress_street", null: false
     t.string "adress_building"
@@ -84,8 +85,9 @@ ActiveRecord::Schema.define(version: 2020_06_08_151305) do
   end
 
   add_foreign_key "categories", "sub_categories"
+  add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-
+  add_foreign_key "items", "prefectures"
   add_foreign_key "items", "users"
   add_foreign_key "sub_categories", "top_categories"
 end

@@ -17,7 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string   :to_family_ch,       null: false, default: ''
       t.string   :to_first_ch,        null: false, default: ''
       t.string   :zip,                null: false
-      t.integer  :prefectures,        null: false
+      t.bigint   :prefecture_id,      null: false
       t.string   :adress_city,        null: false
       t.string   :adress_street,      null: false
       t.string   :adress_building
@@ -55,6 +55,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
+    # add_foreign_key :users, :prefectures
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end
