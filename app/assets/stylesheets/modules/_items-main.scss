@@ -55,7 +55,7 @@
 
   &__top{
     @include wid_hei(100%,560px);
-    background-image: url(/assets/bg-mainVisual.jpg);
+    background-image: image-url("bg-mainVisual.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -153,7 +153,7 @@
     }
 
     &__middle{
-      background-image: url(/assets/bg-topMiddle.jpg);
+      background-image: image-url("bg-topMiddle.jpg");
       background-position: bottom right;
       height: 400px;
       background-size: cover;
@@ -331,7 +331,7 @@
     }
 
     &__low{
-      background-image: url(/assets/bg-midLow.jpg);
+      background-image: image-url("bg-midLow.jpg");
       padding: 100px 40px;
       position: relative;
       background-size: cover;
