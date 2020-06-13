@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @price = 1000
+    @item = Item.includes(:images)(find(params[:id]))
   end
 
 end
