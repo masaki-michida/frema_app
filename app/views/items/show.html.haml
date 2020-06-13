@@ -78,11 +78,11 @@
       .show__main__content__wrapper__links
         %ul.show__main__content__wrapper__links__items
           %li.show__main__content__wrapper__links__items__previous
-            = link_to(item_path, {}) do
+            = link_to(item_path(item.id + 1), {}) do
               %i.fa.fa-angle-left
               %span 前の商品
           %li.show__main__content__wrapper__links__items__next
-            = link_to(item_path, {}) do
+            = link_to(item_path(item.id + 2), {}) do
               %span 次の商品
               %i.fa.fa-angle-right
         .show__main__content__wrapper__links__related
