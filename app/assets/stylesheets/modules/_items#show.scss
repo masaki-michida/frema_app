@@ -130,6 +130,7 @@
 
         a{
           color: #3CCACE;
+          font-weight: bold;
           }
 
         &__items{
@@ -140,6 +141,85 @@
 
           &__next{
             float: right;
+          }
+          &:after{
+            content: "";
+            clear: both;
+            display: block;
+          }
+        }
+        &__related{
+
+          &__category{
+            display: block;
+            margin: 24px 0 8px;
+            font-size: 22px;
+            position: relative;
+          }
+
+          &__lists{
+            margin: 10px 16px 10px;
+            float: left;
+            width: calc(100% / 3.5);
+            background-color: white;
+
+            &:hover{
+              opacity: 50%;
+            }
+
+
+
+            &__frame{
+              background-color: #fff;
+              position: relative;
+              height: 150px;
+              margin: 0;
+
+              &__image{
+                height: 150px;
+                object-fit: cover;
+                position: absolute;
+              }
+            }
+
+            &__contents{
+              background-color: white;
+              color: #333;
+              padding: 16px;
+
+              &__name{
+                overflow: hidden;
+                line-height: 1.5;
+                font-size: 16px;
+                text-align: left;
+              }
+
+              &__details{
+                font-size: 16px;
+
+                ul{
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  li{
+
+                  }
+                }
+                p{
+                  font-size: 10px;
+                }
+              }
+
+            }
+
+          }
+
+          
+
+          &::after{
+            content: "";
+            clear: both;
+            display: block;
           }
 
         }

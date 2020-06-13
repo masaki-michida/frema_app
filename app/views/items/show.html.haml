@@ -16,11 +16,13 @@
                 %li
                   = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png', alt: 'item-img1',class: ''
         .show__main__content__wrapper__itemBox__price
-          %span 値段
+          %span
+            = "#{@price}円"
           .show__main__content__wrapper__itemBox__price__detail
             %span (税込)
             %span 送料込み
-        .show__main__content__wrapper__itemBox__description 商品説明
+        .show__main__content__wrapper__itemBox__description
+          商品の説明がここに入る
         -# 2番目はここから下
         .show__main__content__wrapper__itemBox__table
           %table
@@ -39,7 +41,7 @@
                 %td サイズがあれば表示
               %tr
                 %th 配送料の負担
-                %td 配送料の負担は最初から決まっているのかどうか？決まってないなら削除もしくはヘッダー変更を検討中
+                %td 配送料の負担？
               %tr
                 %th 発送元地域
                 %td 発送元地域を表示
@@ -49,11 +51,30 @@
       .show__main__content__wrapper__links
         %ul.show__main__content__wrapper__links__items
           %li.show__main__content__wrapper__links__items__previous
-            = link_to("", {}) do
+            = link_to(item_path, {}) do
               %i.fa.fa-angle-left
               %span 前の商品
           %li.show__main__content__wrapper__links__items__next
-            = link_to("", {}) do
+            = link_to(item_path, {}) do
               %span 次の商品
               %i.fa.fa-angle-right
         .show__main__content__wrapper__links__related
+          = link_to("カテゴリーへ飛ぶ",item_path,class: 'show__main__content__wrapper__links__related__category')
+          -# カテゴリに関連する画像を三枚表示する
+          .show__main__content__wrapper__links__related__lists
+            = link_to item_path(8) do
+              %figure.show__main__content__wrapper__links__related__lists__frame
+                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG',class: 'show__main__content__wrapper__links__related__lists__frame__image'
+              .show__main__content__wrapper__links__related__lists__contents
+                %h3.show__main__content__wrapper__links__related__lists__contents__name ee
+                .show__main__content__wrapper__links__related__lists__contents__details
+                  %ul
+                    %li 値段を表示 
+                    %li
+                      %i.fa.fa-star.likeIcon
+                      0
+                  %p (税込)
+= render 'layouts/aside'
+= render 'layouts/purchase'
+
+

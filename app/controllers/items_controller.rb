@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @price = 1000
   end
 
 end
