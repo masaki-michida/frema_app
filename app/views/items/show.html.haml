@@ -1,0 +1,51 @@
+.show__main
+  .show__main__content
+    .show__main__content__wrapper
+      .show__main__content__wrapper__itemBox
+        %h2.show__main__content__wrapper__itemBox__name 商品名
+        .show__main__content__wrapper__itemBox__images
+          -# 1番目はここから下
+          %ul.show__main__content__wrapper__itemBox__images__ul
+            %li.show__main__content__wrapper__itemBox__images__ul__li
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", alt: 'item-img',class: 'show__main__content__wrapper__itemBox__images__ul__li--img'
+              %ul
+                %li
+                  = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png', alt: 'item-img1',class: ''
+                %li
+                  = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png', alt: 'item-img1',class: ''
+                %li
+                  = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png', alt: 'item-img1',class: ''
+        .show__main__content__wrapper__itemBox__price
+          %span 値段
+          .show__main__content__wrapper__itemBox__price__detail
+            %span (税込)
+            %span 送料込み
+        .show__main__content__wrapper__itemBox__description 商品説明
+        -# 2番目はここから下
+        .show__main__content__wrapper__itemBox__table
+          %table
+            %tbody
+              %tr
+                %th 出品者
+                %td 出品者の名前を表示
+              %tr
+                %th カテゴリー
+                %td トップカテゴリーを表示
+              %tr
+                %th ブランド
+                %td ブランドがあれば表示
+              %tr
+                %th サイズ
+                %td サイズがあれば表示
+              %tr
+                %th 配送料の負担
+                %td 配送料の負担は最初から決まっているのかどうか？決まってないなら削除もしくはヘッダー変更を検討中
+              %tr
+                %th 発送元地域
+                %td 発送元地域を表示
+              %tr
+                %th 発送日の目安
+                %td 商品の状態を表示
+              
+        -# .show__main__content__wrapper__itemBox__option
+      .show__main__content__wrapper__commentBox
