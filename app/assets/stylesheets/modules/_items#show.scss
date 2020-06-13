@@ -123,15 +123,26 @@
 
         }
 
-        // &__option{
-        //   display: flex;
-        //   justify-content: space-between;
-        // }
-
       }
 
-      &__commentBox{
-        
+      &__links{
+        margin-top: 10px;
+
+        a{
+          color: #3CCACE;
+          }
+
+        &__items{
+
+          &__previous{
+            float: left;
+          }
+
+          &__next{
+            float: right;
+          }
+
+        }
       }
     }
   }

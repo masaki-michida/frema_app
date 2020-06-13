@@ -46,6 +46,14 @@
               %tr
                 %th 発送日の目安
                 %td 商品の状態を表示
-              
-        -# .show__main__content__wrapper__itemBox__option
-      .show__main__content__wrapper__commentBox
+      .show__main__content__wrapper__links
+        %ul.show__main__content__wrapper__links__items
+          %li.show__main__content__wrapper__links__items__previous
+            = link_to("", {}) do
+              %i.fa.fa-angle-left
+              %span 前の商品
+          %li.show__main__content__wrapper__links__items__next
+            = link_to("", {}) do
+              %span 次の商品
+              %i.fa.fa-angle-right
+        .show__main__content__wrapper__links__related
