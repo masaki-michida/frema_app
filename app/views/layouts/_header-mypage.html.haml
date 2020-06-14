@@ -43,6 +43,6 @@
         %li.listsLeft__item
       %ul.Header__inner__nav__Rlists
         %li.Header__inner__nav__Rlists--login
-          %h2 マイページ
+          = link_to "マイページ", users_show_path
         %li.Header__inner__nav__Rlists--new
           = link_to "ログアウト", destroy_user_session_path, method: :delete
