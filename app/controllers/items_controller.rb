@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.includes(:images)(find(params[:id]))
+    @item = Item.includes(:images).find(params[:id])
   end
 
 end
