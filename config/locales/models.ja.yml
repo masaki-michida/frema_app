@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
+        nickname: ニックネーム
+        familyname: 姓（漢字）
+        firstname: 名（漢字）
+        family_ch: 姓（ふりがな）
+        first_ch: 名（ふりがな）
+        birth: 生年月日
+        to_familyname: 姓（漢字）
+        to_firstname: 名（漢字）
+        to_family_ch: 姓（ふりがな）
+        to_first_ch: 名（ふりがな）
+        zip: 郵便番号
+        prefecture_id: 都道府県
+        adress_city: 市区町村
+        adress_street: 番地等
+        adress_building: 建物名等
+        phone: 電話番号 
