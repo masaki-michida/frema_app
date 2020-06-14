@@ -12,6 +12,10 @@ class ItemsController < ApplicationController
     @items = Item.includes(:images).order('created_at DESC')
   end
 
+  def show
+    @item = Item.includes(:images).find(params[:id])
+  end
+
   def new
     @item = Item.new
     @item.images.new
@@ -40,4 +44,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :price, images_attributes: [:content])
   end
+
 end
