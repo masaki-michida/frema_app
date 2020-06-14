@@ -45,7 +45,7 @@
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 商品説明
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
-                  = f.text_area(:statement, maxlength: 1000, placeholder: "色素材重さ注意点などを記載しましょう(1000文字まで)\n例、先月淡路大島で釣ってきた魚です。リリース回数は5回です。腐ってはいないので\nまだ食べられると思います",id: "item_statement")
+                  = f.text_area(:statement, maxlength: 1000, placeholder: "色素材重さ注意点などを記載しましょう(1000文字まで)\n例、先週買ってきたセーターですサイズ大きすぎて合わないので出品します",id: "item_statement")
               .newmain__container__group__row__main__forms__separater
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
@@ -64,14 +64,16 @@
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 商品の状態
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
-                  = f.select(:condition,[1,2,3],id: "item_condition")
+                  = f.select(:condition, id: "item_condition") do
+                    = options_for_select ({"今日中": 1,"来年": 2})
               .newmain__container__group__row__main__forms__separater
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 配送料
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
-                  = f.select(:delivery_fee,[1,2,3],id: "item_delivery_fee")
+                  = f.select(:delivery_fee, id: "item_delivery_fee") do
+                    = options_for_select ({"今日中": 1,"来年": 2})
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 発送元の地域
@@ -83,7 +85,8 @@
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 配送日の目安
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
-                  = f.select(:lag,[1,2,3],id: "item_lag")
+                  = f.select(:lag, id: "item_lag") do
+                    = options_for_select ({"今日中": 1,"来年": 2})
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 商品価格

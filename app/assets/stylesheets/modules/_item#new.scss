@@ -3,6 +3,12 @@
   font-weight: lighter;
   padding: 82px 0;
 
+
+  select option{
+    background-color: green;
+  }
+
+
   label{
     display: inline-block;
     max-width: 100%;
@@ -37,9 +43,6 @@
 
         &__main{
           padding: 0 0 0 40px;
-          // background-color: papayawhip;
-          // margin: $center;
-
 
 
           &__images{
