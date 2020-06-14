@@ -121,14 +121,5 @@
                       %i.fa.fa-star.likeIcon
                       0
                   %p (税込)
-%aside.main__low
-  .main__low__inner
-    %h2.main__low__inner__title だれでもかんたん、人生を変えるフリマアプリ
-    %p.main__low__inner__text 今すぐ無料ダウンロード！
-    .main__btn.main__low__inner__btn
-      = link_to(image_tag('app-store.svg',alt: 'app-store.svg',class: 'main__btn__logo'),'#',class: 'main__btn__logo--apple')
-      = link_to(image_tag('google-play.svg',alt: 'google-play.svg',class: 'main__btn__logo'),'#',class: 'main__btn__logo--google')
-= link_to new_item_path do
-  .main__purchaseBtn
-    %span.main__purchaseBtn__text 出品する
-    = image_tag 'camera-logo.svg', alt: 'camara-logo.svg', class: 'main__purchaseBtn--img'
+= render partials: 'layouts/aside'
+= render partials: 'layouts/purchase'
