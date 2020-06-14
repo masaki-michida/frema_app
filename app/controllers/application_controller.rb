@@ -11,7 +11,11 @@ class ApplicationController < ActionController::Base
 
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:familyname,:firstname,:family_ch,:first_ch,:birth,:to_familyname,:to_firstname,:to_family_ch,:to_first_ch,:zip,:prefecture_id,:adress_city,:adress_street,:adress_building,:phone])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:familyname,:firstname,:family_ch,:first_ch,:birth,:to_familyname,:to_firstname,:to_family_ch,:to_first_ch,:zip,:prefecture,:adress_city,:adress_street,:adress_building,:phone])
+  end
+
+  def after_sign_in_path_for(resource)
+    user_path(resource.id)
   end
 
   def basic_auth

@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_053542) do
     t.bigint "brand_id"
     t.integer "condition", null: false
     t.integer "delivery_fee", null: false
-    t.bigint "prefecture_id", null: false
+    t.string "prefecture", null: false
     t.integer "lag", null: false
     t.integer "price", null: false
     t.integer "status", null: false
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_053542) do
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "fk_rails_36708b3aa6"
     t.index ["category_id"], name: "fk_rails_89fb86dc8b"
-    t.index ["prefecture_id"], name: "fk_rails_5fb69fcd50"
     t.index ["user_id"], name: "fk_rails_d4b6334db2"
   end
 
@@ -70,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_053542) do
     t.string "to_family_ch", default: "", null: false
     t.string "to_first_ch", default: "", null: false
     t.string "zip", null: false
-    t.bigint "prefecture_id", null: false
+    t.string "prefecture", null: false
     t.string "adress_city", null: false
     t.string "adress_street", null: false
     t.string "adress_building"
@@ -87,7 +86,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_053542) do
   add_foreign_key "categories", "sub_categories"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "prefectures"
   add_foreign_key "items", "users"
   add_foreign_key "sub_categories", "top_categories"
 end

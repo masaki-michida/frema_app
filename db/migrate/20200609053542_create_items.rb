@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.bigint       :brand_id
       t.integer      :condition,                    null: false
       t.integer      :delivery_fee,                 null: false
-      t.bigint       :prefecture_id,                null: false
+      t.string       :prefecture,                null: false
       t.integer      :lag,                          null: false
       t.integer      :price,                        null: false
       t.integer      :status,                       null: false
@@ -17,6 +17,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
     add_foreign_key :items, :users
     add_foreign_key :items, :categories
     add_foreign_key :items, :brands
-    add_foreign_key :items, :prefectures
+    
   end
 end

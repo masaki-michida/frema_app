@@ -17,7 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string   :to_family_ch,       null: false, default: ''
       t.string   :to_first_ch,        null: false, default: ''
       t.string   :zip,                null: false
-      t.bigint   :prefecture_id,      null: false
+      t.string   :prefecture,         null: false
       t.string   :adress_city,        null: false
       t.string   :adress_street,      null: false
       t.string   :adress_building

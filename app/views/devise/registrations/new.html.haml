@@ -1,76 +1,175 @@
-%h2 Sign up
+
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :アカウント情報
-    %br/
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :ニックネーム
-    %br/
-    = f.text_field :nickname
-  　
-  .field
-    = f.label :本人確認情報
-    %br/
-  .field
-    = f.label :姓（漢字）
-    = f.text_field :familyname
-    = f.label :名（漢字）
-    = f.text_field :firstname
-  .field
-    = f.label :姓（ふりがな）
-    = f.text_field :family_ch
-    = f.label :名（ふりがな）
-    = f.text_field :first_ch
-  .field
-    = f.label :生年月日
-    = f.text_field :birth
-  .field
-    = f.label :商品送付先確認情報
-    %br/
-  .field
-    = f.label :姓（漢字）
-    = f.text_field :to_familyname
-    = f.label :名（漢字）
-    = f.text_field :to_firstname
-  .field
-    = f.label :姓（ふりがな）
-    = f.text_field :to_family_ch
-    = f.label :名（ふりがな）
-    = f.text_field :to_first_ch
-  .field
-    = f.label :郵便番号
-    = f.text_field :zip
-    .field
-      = f.label :都道府県
-      = f.text_field :prefecture_id
-      .field
-        = f.label :市町村
+  %table
+    %tr
+      %th
+        会員情報登録
+    
+    %tr.email
+      %td
+        =f.label :email, 'メールアドレス'
+        .span必須
+      %td
+        =f.email_field :email, autocomplete: "email"
+        .span
+          = resource.errors.full_messages_for(:email)[0]
+      
+    %tr
+      %td
+        パスワード
+        .span必須
+      %td
+        = f.password_field :password, autocomplete: "new-password"
+        .span
+          = resource.errors.full_messages_for(:password)[0]
+      
+    %tr
+      %td
+        確認用パスワード
+        .span必須
+      %td
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+        .span
+          = resource.errors.full_messages_for(:password_confirmation)[0]
+        
+    %tr
+      %td
+        ニックネーム
+        .span必須
+      %td
+        = f.text_field :nickname
+        .span
+          = resource.errors.full_messages_for(:nickname)[0]
+    %tr
+      %td
+        本人確認情報
+    %tr
+      %td
+        （姓）
+        .span必須
+      %td
+        = f.text_field :familyname
+        .span
+          = resource.errors.full_messages_for(:familyname)[0]
+      %td
+        （名）
+        .span必須
+      %td
+        = f.text_field :firstname
+        .span
+          = resource.errors.full_messages_for(:firstname)[0]
+
+    %tr
+      %td
+        （姓）ふりがな
+        .span必須
+      %td
+        = f.text_field :family_ch
+        .span
+          = resource.errors.full_messages_for(:family_ch)[0]
+      %td
+        （名）ふりがな
+        .span必須
+      %td
+        = f.text_field :first_ch
+        .span
+          = resource.errors.full_messages_for(:first_ch)[0]
+      %tr
+    
+    %tr
+      %td
+        = f.label :birth, '生年月日'
+        .span必須
+      %td
+        = f.text_field :birth
+        .span
+          = resource.errors.full_messages_for(:birth)[0]
+
+    %tr
+      %td
+        商品送付先確認情報
+      
+    %tr
+      %td
+        （姓）
+        .span必須
+      %td
+        = f.text_field :to_familyname
+        .span
+          = resource.errors.full_messages_for(:to_familyname)[0]
+      %td
+        （名）
+        .span必須
+      %td
+        = f.text_field :to_firstname
+        .span
+          = resource.errors.full_messages_for(:to_firstname)[0]
+    
+    
+    
+    %tr
+      %td
+        （姓）ふりがな
+        .span必須
+      %td
+        = f.text_field :to_family_ch
+        .span
+          = resource.errors.full_messages_for(:to_family_ch)[0]
+      %td
+        （名）ふりがな
+        .span必須
+      %td
+        = f.text_field :to_first_ch
+        .span
+          = resource.errors.full_messages_for(:to_first_ch)[0]
+    
+    %tr
+      %td
+        郵便番号
+        .span必須
+      %td
+        = f.text_field :zip
+        .span
+          = resource.errors.full_messages_for(:zip)[0]
+
+    %tr
+      %td
+        都道府県
+        .span必須
+      %td
+        = f.text_field :prefecture
+        .span
+          = resource.errors.full_messages_for(:prefecture)[0]
+    
+    %tr
+      %td
+        市町村
+        .span必須
+      %td
         = f.text_field :adress_city
-        .field
-          = f.label :番地
-          = f.text_field :adress_street
-          .field
-            = f.label :マンション名・部屋番号
-            = f.text_field :adress_building
-            .field
-              = f.label :電話番号
-              = f.text_field :phone
-              .actions
-                = f.submit "Sign up"
-              = render "devise/shared/links"
+        .span
+          = resource.errors.full_messages_for(:adress_city)[0]
+    
+    %tr
+      %td
+        番地
+        .span必須
+      %td
+        = f.text_field :adress_street
+        .span
+          = resource.errors.full_messages_for(:adress_street)[0]
+    
+    %tr
+      %td
+        マンション名・部屋番号
+      %td
+        = f.text_field :adress_building
+    
+    %tr
+      %td
+        電話番号
+      %td
+        = f.text_field :phone
+  .actions
+    = f.submit "新規会員登録"
+    = render "devise/shared/links"
