@@ -7,7 +7,7 @@
         .show__main__content__wrapper__itemBox__images
           %ul.show__main__content__wrapper__itemBox__images__ul
             %li.show__main__content__wrapper__itemBox__images__ul__li
-              = Image.find_by(item_id: @item.id)
+              = Image.find_by(item_id: @item.id).content
               %ul
                 %li
                   = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png', alt: 'item-img1',class: ''
