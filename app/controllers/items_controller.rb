@@ -47,6 +47,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    Item.find(params[:id]).delete
   end
 
   private
