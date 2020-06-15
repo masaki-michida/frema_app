@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   def index
     picker = Item.where(status: 1).order(created_at: :desc).limit(1)
-    c = picker[0].category
+    c = picker[0].category_id
     b = picker[0].brand_id
     @items_c = Item.includes(:images).where(status: 1).where(category: c).order(created_at: :desc).limit(3)
     @items_b = Item.includes(:images).where(status: 1).where(brand_id: b).order(created_at: :desc).limit(3)
