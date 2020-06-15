@@ -1,0 +1,11 @@
+- if user_signed_in?
+  - if current_user.id != @item.user_id
+    = link_to new_item_path do
+      .main__buyButton
+        %span.main__buyButton__text 購入する
+        -# = image_tag 'camera-logo.svg', alt: 'camara-logo.svg', class: 'main__purchaseBtn--img'
+-else
+  = link_to new_user_registration_path do
+    .main__buyButton
+      %span.main__buyButton__text 会員登録
+      -# = image_tag 'camera-logo.svg', alt: 'camara-logo.svg', class: 'main__purchaseBtn--img'
