@@ -44,6 +44,7 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+    redirect_to item_path(params[:id])
   end
 
   def destroy
