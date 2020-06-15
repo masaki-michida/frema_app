@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   def index
     picker = Item.where(status: 1).order(created_at: :desc).limit(1)
     c = picker[0].category
@@ -14,6 +15,9 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
+    @categories = TopCategory.pluck(:name,:id)
+    @brands = Brand.pluck(:name,:id)
+    @prefectures = Prefecture.pluck(:name,:id)
   end
 
   def create
@@ -37,7 +41,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, images_attributes: [:content])
+    params.require(:item).permit(:name, :status, :price, :statement, [:category_id, :id], [:prefecture_id, :id], [:brand_id, :id],[:user_id, :id],:condition, :delivery_fee , :lag, images_attributes: [:content])
   end
 
 end

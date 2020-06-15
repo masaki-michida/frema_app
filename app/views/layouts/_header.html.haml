@@ -3,7 +3,7 @@
     .Header__inner
       .Header__inner__search
         %h1.Header__inner__search__logo
-          = link_to(image_tag('frema-logo-normal.svg'),'/',class: 'Header__inner__search__logo--a')
+          = link_to(image_tag('frema-logo-normal.svg'),root_path,class: 'Header__inner__search__logo--a')
         .Header__inner__search__Box
           = form_with(url: '/',class: 'Header__inner__search__Box--form') do
             = text_field_tag(:search,nil,placeholder:"キーワードから探す",class: 'Header__inner__search__Box--input')
@@ -43,14 +43,13 @@
                   = link_to("その他",'#',id:11) 
           %li.listsLeft__item
         %ul.Header__inner__nav__Rlists
+        - if user_signed_in?
           %li.Header__inner__nav__Rlists--login
-            -if current_user
-              = link_to(current_user.nickname, user_session_path)
-            -else
-              = link_to('ログイン', new_user_session_path)
+            = link_to "マイページ", users_show_path
           %li.Header__inner__nav__Rlists--new
-            -if current_user
-              = link_to('ログアウト',destroy_user_session_path, method: :delete)
-            -else
-              = link_to('新規会員登録', new_user_registration_path)
-            
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li.Header__inner__nav__Rlists--login
+            = link_to "ログイン", new_user_session_path
+          %li.Header__inner__nav__Rlists--new
+            = link_to "新規会員登録", new_user_registration_path
