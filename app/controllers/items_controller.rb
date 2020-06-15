@@ -30,12 +30,25 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @categories = TopCategory.pluck(:name,:id)
+    @brands = Brand.pluck(:name,:id)
+    @prefectures = Prefecture.pluck(:name,:id)
+    @destroy = ""
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def destroy
+    Item.find(params[:id]).delete
+    redirect_to root_path
   end
 
   private
