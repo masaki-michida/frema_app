@@ -101,5 +101,6 @@
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.submit("確認する",id:"confirm")
           -if @destroy
+            = link_to item_path(params[:id]), method: :delete do
             .main__buyButton--red
               %span.main__buyButton__text 削除
