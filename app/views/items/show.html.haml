@@ -5,7 +5,6 @@
         %h2.show__main__content__wrapper__itemBox__name
           =@item.name
         .show__main__content__wrapper__itemBox__images
-          -# 1番目はここから下
           %ul.show__main__content__wrapper__itemBox__images__ul
             %li.show__main__content__wrapper__itemBox__images__ul__li
               = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", alt: 'item-img',class: 'show__main__content__wrapper__itemBox__images__ul__li--img'
@@ -25,7 +24,6 @@
             %span 送料込み
         .show__main__content__wrapper__itemBox__description
           =@item.statement
-        -# 2番目はここから下
         .show__main__content__wrapper__itemBox__table
           %table
             %tbody
@@ -87,7 +85,6 @@
               %i.fa.fa-angle-right
         .show__main__content__wrapper__links__related
           = link_to("カテゴリーへ飛ぶ",item_path,class: 'show__main__content__wrapper__links__related__category')
-          -# カテゴリに関連する画像を三枚表示する
           .show__main__content__wrapper__links__related__lists
             = link_to item_path(1) do
               %figure.show__main__content__wrapper__links__related__lists__frame
@@ -103,3 +100,4 @@
                   %p (税込)
 = render 'layouts/aside'
 = render 'layouts/purchase'
+= render 'layouts/buy_button'

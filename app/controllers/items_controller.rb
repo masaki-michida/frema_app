@@ -8,11 +8,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @items = Item.order(created_at: :desc).limit(6)
-    @items = Item.includes(:images).order('created_at DESC')
-  end
-
-  def show
     @item = Item.includes(:images).find(params[:id])
   end
 
