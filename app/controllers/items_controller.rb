@@ -34,6 +34,7 @@ class ItemsController < ApplicationController
     @categories = TopCategory.pluck(:name,:id)
     @brands = Brand.pluck(:name,:id)
     @prefectures = Prefecture.pluck(:name,:id)
+    @destroy = ""
   end
 
   def update
