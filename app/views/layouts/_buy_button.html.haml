@@ -1,5 +1,8 @@
-- if user_signed_in?
-  - if current_user.id != @item.user_id
+- if @item.user_id == current_user.id
+  = link_to new_item_path do
+    .main__buyButton
+      %span.main__buyButton__text 編集する
+- elsif user_signed_in?
     = link_to new_item_path do
       .main__buyButton
         %span.main__buyButton__text 購入する
