@@ -45,7 +45,7 @@
         %ul.Header__inner__nav__Rlists
         - if user_signed_in?
           %li.Header__inner__nav__Rlists--login
-            = link_to "マイページ", users_show_path
+            = link_to "マイページ", user_path(current_user)
           %li.Header__inner__nav__Rlists--new
             = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
