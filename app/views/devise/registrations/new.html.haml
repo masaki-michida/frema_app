@@ -1,173 +1,173 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  %table
-    %tr
-      %th
+  %table.label
+    %tr.label__box
+      %th.label__box__1
         会員情報登録
     
     %tr.email
-      %td
+      %td.label__box__2
         =f.label :email, 'メールアドレス'
         .span必須
-      %td
+      %td.label__box__2
         =f.email_field :email, autocomplete: "email"
         .span
           = resource.errors.full_messages_for(:email)[0]
       
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         パスワード
         .span必須
-      %td
+      %td.label__box__2
         = f.password_field :password, autocomplete: "new-password"
         .span
           = resource.errors.full_messages_for(:password)[0]
       
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         確認用パスワード
         .span必須
-      %td
+      %td.label__box__2
         = f.password_field :password_confirmation, autocomplete: "new-password"
         .span
           = resource.errors.full_messages_for(:password_confirmation)[0]
         
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         ニックネーム
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :nickname
         .span
           = resource.errors.full_messages_for(:nickname)[0]
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         本人確認情報
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         （姓）
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :familyname
         .span
           = resource.errors.full_messages_for(:familyname)[0]
-      %td
+      %td.label__box__2
         （名）
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :firstname
         .span
           = resource.errors.full_messages_for(:firstname)[0]
 
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         （姓）ふりがな
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :family_ch
         .span
           = resource.errors.full_messages_for(:family_ch)[0]
-      %td
+      %td.label__box__2
         （名）ふりがな
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :first_ch
         .span
           = resource.errors.full_messages_for(:first_ch)[0]
-      %tr
+      
     
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         = f.label :birth, '生年月日'
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :birth
         .span
           = resource.errors.full_messages_for(:birth)[0]
 
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         商品送付先確認情報
       
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         （姓）
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :to_familyname
         .span
           = resource.errors.full_messages_for(:to_familyname)[0]
-      %td
+      %td.label__box__2
         （名）
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :to_firstname
         .span
           = resource.errors.full_messages_for(:to_firstname)[0]
     
     
     
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         （姓）ふりがな
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :to_family_ch
         .span
           = resource.errors.full_messages_for(:to_family_ch)[0]
-      %td
+      %td.label__box__2
         （名）ふりがな
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :to_first_ch
         .span
           = resource.errors.full_messages_for(:to_first_ch)[0]
     
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         郵便番号
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :zip
         .span
           = resource.errors.full_messages_for(:zip)[0]
 
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         都道府県
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :prefecture_id
         .span
           = resource.errors.full_messages_for(:prefecture_id)[0]
     
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         市町村
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :adress_city
         .span
           = resource.errors.full_messages_for(:adress_city)[0]
     
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         番地
         .span必須
-      %td
+      %td.label__box__2
         = f.text_field :adress_street
         .span
           = resource.errors.full_messages_for(:adress_street)[0]
     
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         マンション名・部屋番号
-      %td
+      %td.label__box__2
         = f.text_field :adress_building
     
-    %tr
-      %td
+    %tr.label__box
+      %td.label__box__2
         電話番号
-      %td
+      %td.label__box__2
         = f.text_field :phone
   .actions
     = f.submit "新規会員登録"
