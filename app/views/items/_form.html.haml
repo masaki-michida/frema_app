@@ -8,31 +8,14 @@
             = f.hidden_field :user_id, value: current_user.id
             = f.hidden_field :status, value: 1
             .newmain__container__group__row__main__images
-              = f.fields_for :images do |i|
-                .newmain__container__group__row__main__images__content
-                  .newmain__container__group__row__main__images__content__preview
-                    = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
-                  .newmain__container__group__row__main__images__content__picker
-                    = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
-                      = i.file_field(:content,id:"item_image")
-                .newmain__container__group__row__main__images__content
-                  .newmain__container__group__row__main__images__content__preview
-                    = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
-                  .newmain__container__group__row__main__images__content__picker
-                    = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
-                      = i.file_field(:content,id:"item_image")
-                .newmain__container__group__row__main__images__content
-                  .newmain__container__group__row__main__images__content__preview
-                    = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
-                  .newmain__container__group__row__main__images__content__picker
-                    = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
-                      = i.file_field(:content,id:"item_image")
-                .newmain__container__group__row__main__images__content
-                  .newmain__container__group__row__main__images__content__preview
-                    = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
-                  .newmain__container__group__row__main__images__content__picker
-                    = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
-                      = i.file_field(:content,id:"item_image")
+              -4.times do
+                = f.fields_for :images do |i|
+                  .newmain__container__group__row__main__images__content
+                    .newmain__container__group__row__main__images__content__preview
+                      = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
+                    .newmain__container__group__row__main__images__content__picker
+                      = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
+                        = i.file_field(:content,id:"item_image")
             .newmain__container__group__row__main__forms
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
