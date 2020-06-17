@@ -6,6 +6,7 @@
           =@item.name
         .show__main__content__wrapper__itemBox__images
           %ul.show__main__content__wrapper__itemBox__images__ul
+          -if @item.images[0]
             %li.show__main__content__wrapper__itemBox__images__ul__li
               = image_tag @item.images[0].content.url
               %ul
