@@ -9,7 +9,6 @@ class CardController < ApplicationController
 
   def pay
     Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
-    # binding.pry
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
