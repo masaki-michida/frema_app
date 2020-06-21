@@ -9,16 +9,16 @@ class PurchaseController < ApplicationController
       Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
-      @item = Item.find(params[:item][item_id])
+      @item = Item.find(params[:item_id])
     end
   end
 
   def pay
-    @item = Item.find(prams[:item][item_id])
+    @item = Item.find(prams[:item_id])
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
     Payjp::Charge.create(
-    :amount => 1200,
+    :amount => @item.price,
     :customer => card.customer_id,
     :currency => 'jpy',
   )
