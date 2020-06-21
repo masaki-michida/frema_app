@@ -10,8 +10,7 @@
                 = f.fields_for :images do |i|
                   .newmain__container__group__row__main__images__content#image-box
                     .newmain__container__group__row__main__images__content__preview
-                      = i.label(:content) do
-                        = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img', "data-index" => t.index)
+                      = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img', "data-index" => t.index)
                       =i.file_field(:content,id:"item_image")
             .newmain__container__group__row__main__forms
               .newmain__container__group__row__main__forms__wrapper
