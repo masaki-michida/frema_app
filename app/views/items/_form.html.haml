@@ -8,7 +8,7 @@
             .newmain__container__group__row__main__images
               -4.times do |t|
                 = f.fields_for :images do |i|
-                  .newmain__container__group__row__main__images__content
+                  .newmain__container__group__row__main__images__content#image-box
                     .newmain__container__group__row__main__images__content__preview
                       = i.label(:content) do
                         = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img', "data-index" => t.index)
