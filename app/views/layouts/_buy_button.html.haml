@@ -4,9 +4,9 @@
       .main__buyButton
         %span.main__buyButton__text 編集する
   - else
-    = form_with url: purchase_index_path do |f|
-      = f.hidden_field :item_id, :value => @item.id
-      = f.submit '購入する'
+    = link_to item_purchase_index_path(@item.id) do
+      .main__buyButton
+        %span.main__buyButton__text 購入する
     -# = image_tag 'camera-logo.svg', alt: 'camara-logo.svg', class: 'main__purchaseBtn--img'
 -else
   = link_to new_user_session_path do

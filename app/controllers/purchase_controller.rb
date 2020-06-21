@@ -18,7 +18,7 @@ class PurchaseController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
     Payjp::Charge.create(
-    :amount => @item.pricce,
+    :amount => 1200,
     :customer => card.customer_id,
     :currency => 'jpy',
   )
