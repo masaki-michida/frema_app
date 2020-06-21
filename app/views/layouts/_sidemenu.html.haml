@@ -1,0 +1,9 @@
+%section.newmain__container__group__row__side
+  .newmain__container__group__row__side__bar
+    %section.newmain__container__group__row__side__bar__inner
+      %h2.newmain__container__group__row__side__bar__inner__title マイページメニュー
+      .newmain__container__group__row__side__bar__inner__lists
+        = link_to('トップページ','/',class: 'newmain__container__group__row__side__bar__inner__lists--a')
+        = link_to('商品出品',new_item_path,class: 'newmain__container__group__row__side__bar__inner__lists--a')
+        = link_to('クレジットカード登録', {},class: 'newmain__container__group__row__side__bar__inner__lists--a')
+        = link_to('ログアウト', destroy_user_session_path, method: :delete, class: 'newmain__container__group__row__side__bar__inner__lists--a')

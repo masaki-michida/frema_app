@@ -1,0 +1,101 @@
+.show__main
+  .show__main__content
+    .show__main__content__wrapper
+      .show__main__content__wrapper__itemBox
+        %h2.show__main__content__wrapper__itemBox__name
+          =@item.name
+        .show__main__content__wrapper__itemBox__images
+          %ul.show__main__content__wrapper__itemBox__images__ul
+          -if @item.images[0]
+            %li.show__main__content__wrapper__itemBox__images__ul__li
+              = image_tag @item.images[0].content.url
+              %ul
+                -@item.images.each do |image|
+                  %li
+                    = image_tag image.content.url, alt: 'item-img1'
+        .show__main__content__wrapper__itemBox__price
+          %span
+            =@item.price
+            円
+          .show__main__content__wrapper__itemBox__price__detail
+            %span (税込)
+            %span 送料込み
+        .show__main__content__wrapper__itemBox__description
+          =@item.statement
+        .show__main__content__wrapper__itemBox__table
+          %table
+            %tbody
+              %tr
+                %th 出品者
+                %td
+                  =User.find(@item.user_id).nickname
+              %tr
+                %th カテゴリー
+                %td
+                  =@item.category.name
+              %tr
+                %th ブランド
+                %td
+                  =Brand.find(@item.brand_id).name if @item.brand_id
+              %tr
+                %th サイズ
+                %td サイズがあれば表示
+              %tr
+                %th 商品の状態
+                %td
+                  -if @item.condition == 1
+                    新品、未使用
+                  -elsif @item.condition == 2
+                    未使用に近い
+                  -elsif @item.condition == 3
+                    目立った傷や汚れなし
+                  -elsif @item.condition == 4
+                    やや傷や汚れあり
+                  -elsif @item.condition == 5
+                    傷や汚れあり
+                  -elsif @item.condition == 6
+                    全体的に状態が悪い
+              %tr
+                %th 配送料の負担
+                %td 配送料の負担？
+              %tr
+                %th 発送元の地域
+                %td
+                  =Prefecture.find(@item.prefecture_id).name
+              %tr
+                %th 発送日の目安
+                %td
+                  -if @item.lag == 1
+                    支払い後、1~2日で発送
+                  -elsif @item.lag == 2
+                    支払い後、2~3日で発送
+                  -elsif @item.lag == 3
+                    支払い後、4~7日で発送
+      .show__main__content__wrapper__links
+        %ul.show__main__content__wrapper__links__items
+          %li.show__main__content__wrapper__links__items__previous
+            = link_to(item_path(@item.id - 1), {}) do
+              %i.fa.fa-angle-left
+              %span 前の商品
+          %li.show__main__content__wrapper__links__items__next
+            = link_to(item_path(@item.id + 1), {}) do
+              %span 次の商品
+              %i.fa.fa-angle-right
+        .show__main__content__wrapper__links__related
+          = link_to("カテゴリーへ飛ぶ",item_path,class: 'show__main__content__wrapper__links__related__category')
+          .show__main__content__wrapper__links__related__lists
+            = link_to item_path(1) do
+              %figure.show__main__content__wrapper__links__related__lists__frame
+                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG',class: 'show__main__content__wrapper__links__related__lists__frame__image'
+              .show__main__content__wrapper__links__related__lists__contents
+                %h3.show__main__content__wrapper__links__related__lists__contents__name ee
+                .show__main__content__wrapper__links__related__lists__contents__details
+                  %ul
+                    %li 値段を表示
+                    %li
+                      %i.fa.fa-star.likeIcon
+                      0
+                  %p (税込)
+= render 'layouts/aside'
+= render 'layouts/purchase'
+= render 'layouts/buy_button'

@@ -1,0 +1,15 @@
+- if user_signed_in?
+  - if @item.user_id == current_user.id
+    = link_to edit_item_path do
+      .main__buyButton
+        %span.main__buyButton__text 編集する
+  - else
+    = link_to item_purchase_index_path(@item.id) do
+      .main__buyButton
+        %span.main__buyButton__text 購入する
+    -# = image_tag 'camera-logo.svg', alt: 'camara-logo.svg', class: 'main__purchaseBtn--img'
+-else
+  = link_to new_user_session_path do
+    .main__buyButton
+      %span.main__buyButton__text ログイン
+      -# = image_tag 'camera-logo.svg', alt: 'camara-logo.svg', class: 'main__purchaseBtn--img'

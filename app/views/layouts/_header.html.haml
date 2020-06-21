@@ -1,48 +1,55 @@
-.Header
-  .Header__inner
-    .Header__inner__search
-      %h1.Header__inner__search__logo
-        = link_to(image_tag('frema-logo-normal.svg'),'#',class: 'Header__inner__search__logo--a')
-      .Header__inner__search__Box
-        = form_with(url: '/',class: 'Header__inner__search__Box--form')
-        = text_field_tag(:search,nil,placeholder:"キーワードから探す",class: 'Header__inner__search__Box--input')
-        = button_tag((image_tag 'search-logo.svg'),name: 'search',class: 'Header__inner__search__Box--btn')
-      %ul.Heder__inner__search__resultLists
-    .Header__inner__nav
-      %ul.Header__inner__nav__Llists
-        %li.Header__inner__nav__Llists__item
-          = link_to('カテゴリー', '#',class: "Header__inner__nav__Llists__item--cat")
-          .tree.displayNone
-            %ul.tree__categoryTree
-              %li.categoryTree--item
-                = link_to("レディース",'#',id:1) 
-              %li.categoryTree--item
-                = link_to("メンズ",'#') 
-              %li.categoryTree--item
-                = link_to("ベビー・キッズ",'#',id:2) 
-              %li.categoryTree--item
-                = link_to("インテリア・住まい・小物",'#',id:3) 
-              %li.categoryTree--item
-                = link_to("本・音楽・ゲーム",'#') 
-              %li.categoryTree--item
-                = link_to("おもちゃ・ホビー・グッズ",'#',id:4) 
-              %li.categoryTree--item
-                = link_to("コスメ・香水・美容",'#',id:5) 
-              %li.categoryTree--item
-                = link_to("家電・スマホ・カメラ",'#',id:6) 
-              %li.categoryTree--item
-                = link_to("スポーツ・レジャー",'#',id:7) 
-              %li.categoryTree--item
-                = link_to("ハンドメイド",'#',id:8) 
-              %li.categoryTree--item
-                = link_to("チケット",'#',id:9) 
-              %li.categoryTree--item
-                = link_to("自動車・オートバイ",'#',id:10) 
-              %li.categoryTree--item
-                = link_to("その他",'#',id:11) 
-        %li.listsLeft__item
-      %ul.Header__inner__nav__Rlists
-        %li.Header__inner__nav__Rlists--login
-          = link_to('ログイン', '#')
-        %li.Header__inner__nav__Rlists--new
-          = link_to('新規会員登録', '#')
+.Wrapper__for__header
+  .Header
+    .Header__inner
+      .Header__inner__search
+        %h1.Header__inner__search__logo
+          = link_to(image_tag('frema-logo-normal.svg'),root_path,class: 'Header__inner__search__logo--a')
+        .Header__inner__search__Box
+          = form_with(url: '/',class: 'Header__inner__search__Box--form') do
+            = text_field_tag(:search,nil,placeholder:"キーワードから探す",class: 'Header__inner__search__Box--input')
+            = button_tag((image_tag 'search-logo.svg'),name: 'search',class: 'Header__inner__search__Box--btn')
+        %ul.Heder__inner__search__resultLists
+      .Header__inner__nav
+        %ul.Header__inner__nav__Llists
+          %li.Header__inner__nav__Llists__item
+            = link_to('カテゴリー', '#',class: "Header__inner__nav__Llists__item--cat")
+            .tree.displayNone
+              %ul.tree__categoryTree
+                %li.categoryTree--item
+                  = link_to("レディース",'#',id:1) 
+                %li.categoryTree--item
+                  = link_to("メンズ",'#') 
+                %li.categoryTree--item
+                  = link_to("ベビー・キッズ",'#',id:2) 
+                %li.categoryTree--item
+                  = link_to("インテリア・住まい・小物",'#',id:3) 
+                %li.categoryTree--item
+                  = link_to("本・音楽・ゲーム",'#') 
+                %li.categoryTree--item
+                  = link_to("おもちゃ・ホビー・グッズ",'#',id:4) 
+                %li.categoryTree--item
+                  = link_to("コスメ・香水・美容",'#',id:5) 
+                %li.categoryTree--item
+                  = link_to("家電・スマホ・カメラ",'#',id:6) 
+                %li.categoryTree--item
+                  = link_to("スポーツ・レジャー",'#',id:7) 
+                %li.categoryTree--item
+                  = link_to("ハンドメイド",'#',id:8) 
+                %li.categoryTree--item
+                  = link_to("チケット",'#',id:9) 
+                %li.categoryTree--item
+                  = link_to("自動車・オートバイ",'#',id:10) 
+                %li.categoryTree--item
+                  = link_to("その他",'#',id:11) 
+          %li.listsLeft__item
+        %ul.Header__inner__nav__Rlists
+        - if user_signed_in?
+          %li.Header__inner__nav__Rlists--login
+            = link_to "マイページ", user_path(current_user)
+          %li.Header__inner__nav__Rlists--new
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li.Header__inner__nav__Rlists--login
+            = link_to "ログイン", new_user_session_path
+          %li.Header__inner__nav__Rlists--new
+            = link_to "新規会員登録", new_user_registration_path

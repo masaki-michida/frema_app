@@ -1,0 +1,87 @@
+.newmain
+  .newmain__container
+    .newmain__container__group
+      .newmain__container__group__row
+        = render 'layouts/sidemenu'
+        .newmain__container__group__row__main
+          = form_with model: @item do |f|
+            .newmain__container__group__row__main__images
+              -4.times do
+                = f.fields_for :images do |i|
+                  .newmain__container__group__row__main__images__content
+                    .newmain__container__group__row__main__images__content__preview
+                      = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
+                    .newmain__container__group__row__main__images__content__picker
+                      = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
+                        = i.file_field(:content,id:"item_image")
+            .newmain__container__group__row__main__forms
+              .newmain__container__group__row__main__forms__wrapper
+                .newmain__container__group__row__main__forms__wrapper__title
+                  %label.newmain__container__group__row__main__forms__wrapper__title--label 商品名
+                  %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
+                .newmain__container__group__row__main__forms__wrapper__form
+                  = f.text_field(:name, maxlength: 40, placeholder: "40文字まで",id: "item_name")
+              .newmain__container__group__row__main__forms__wrapper
+                .newmain__container__group__row__main__forms__wrapper__title
+                  %label.newmain__container__group__row__main__forms__wrapper__title--label 商品説明
+                  %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
+                .newmain__container__group__row__main__forms__wrapper__form
+                  = f.text_area(:statement, maxlength: 1000, placeholder: "色素材重さ注意点などを記載しましょう(1000文字まで)\n例、先週買ってきたセーターですサイズ大きすぎて合わないので出品します",id: "item_statement")
+              .newmain__container__group__row__main__forms__separater
+              .newmain__container__group__row__main__forms__wrapper
+                .newmain__container__group__row__main__forms__wrapper__title
+                  %label.newmain__container__group__row__main__forms__wrapper__title--label カテゴリ
+                  %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
+                .newmain__container__group__row__main__forms__wrapper__form
+                  = f.select(:category_id,@categories,id: "item_category")
+              .newmain__container__group__row__main__forms__wrapper
+                .newmain__container__group__row__main__forms__wrapper__title
+                  %label.newmain__container__group__row__main__forms__wrapper__title--label ブランド
+                  %span.newmain__container__group__row__main__forms__wrapper__title--require
+                .newmain__container__group__row__main__forms__wrapper__form
+                  = f.select(:brand_id,@brands,id: "item_brand")
+              .newmain__container__group__row__main__forms__wrapper
+                .newmain__container__group__row__main__forms__wrapper__title
+                  %label.newmain__container__group__row__main__forms__wrapper__title--label 商品の状態
+                  %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
+                .newmain__container__group__row__main__forms__wrapper__form
+                  = f.select(:condition, id: "item_condition") do
+                    = options_for_select ({"今日中": 1,"来年": 2})
+              .newmain__container__group__row__main__forms__separater
+              .newmain__container__group__row__main__forms__wrapper
+                .newmain__container__group__row__main__forms__wrapper__title
+                  %label.newmain__container__group__row__main__forms__wrapper__title--label 配送料
+                  %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
+                .newmain__container__group__row__main__forms__wrapper__form
+                  = f.select(:delivery_fee, id: "item_delivery_fee") do
+                    = options_for_select ({"今日中": 1,"来年": 2})
+              .newmain__container__group__row__main__forms__wrapper
+                .newmain__container__group__row__main__forms__wrapper__title
+                  %label.newmain__container__group__row__main__forms__wrapper__title--label 発送元の地域
+                  %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
+                .newmain__container__group__row__main__forms__wrapper__form
+                  = f.select(:prefecture_id,@prefectures,id: "item_prefecture",prompt: "選択してください")
+              .newmain__container__group__row__main__forms__wrapper
+                .newmain__container__group__row__main__forms__wrapper__title
+                  %label.newmain__container__group__row__main__forms__wrapper__title--label 配送日の目安
+                  %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
+                .newmain__container__group__row__main__forms__wrapper__form
+                  = f.select(:lag, id: "item_lag") do
+                    = options_for_select ({"今日中": 1,"来年": 2})
+              .newmain__container__group__row__main__forms__wrapper
+                .newmain__container__group__row__main__forms__wrapper__title
+                  %label.newmain__container__group__row__main__forms__wrapper__title--label 商品価格
+                  %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
+                .newmain__container__group__row__main__forms__wrapper__form
+                  = f.text_field(:price, maxlength: 40, placeholder: "10000",id: "item_price")
+              .newmain__container__group__row__main__forms__separater
+              .newmain__container__group__row__main__forms__wrapper
+                .newmain__container__group__row__main__forms__wrapper__title
+                  %label.newmain__container__group__row__main__forms__wrapper__title--label
+                  %span.newmain__container__group__row__main__forms__wrapper__title--require
+                .newmain__container__group__row__main__forms__wrapper__form
+                  = f.submit("確認する",id:"confirm")
+          -if @destroy
+            = link_to item_path(params[:id]), method: :delete do
+              .main__buyButton--red
+                %span.main__buyButton__text 削除
