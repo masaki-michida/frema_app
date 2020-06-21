@@ -60,7 +60,7 @@
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 発送元の地域
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
-                  = f.select(:prefecture_id,@prefectures,id: "item_prefecture",prompt: "選択してください")
+                  = f.select(:prefecture_id,@prefectures,id: "item_prefecture",prompt: "#{Prefecture.find(current_user.prefecture_id).name}")
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 配送日の目安
