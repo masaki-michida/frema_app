@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
       :statement, 
       [:category_id, :id], [:prefecture_id, :id], 
       [:brand_id, :id],:condition, :delivery_fee , 
-      :lag, images_attributes: [:content],
+      :lag, images_attributes: [:content, :_destroy, :id],
     ).merge(
       user_id: current_user.id,
       status: 1
