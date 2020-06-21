@@ -138,7 +138,7 @@
           .span必須
         %td
           - @prefectures = Prefecture.pluck(:name,:id)
-            = f.select(:prefecture_id,@prefectures,id: "item_prefecture")
+          = f.select(:prefecture_id,@prefectures,id: "item_prefecture")
           .span
             = resource.errors.full_messages_for(:prefecture_id)[0]
 
