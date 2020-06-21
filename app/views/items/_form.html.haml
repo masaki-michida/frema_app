@@ -5,17 +5,15 @@
         = render 'layouts/sidemenu'
         .newmain__container__group__row__main
           = form_with model: @item do |f|
-            -# = f.hidden_field :user_id, value:
-            -# = f.hidden_field :status, value: 1
             -# .newmain__container__group__row__main__images
               -# -4.times do
             = f.fields_for :images do |i|
               #image-box
                 #previews
                   -# = image_tag "dummy.png", alt: "search-logo.svg",width: '187px',height: '187px'
-                = f.fields_for :images do |image|
-                  .js-file_group{"data-index" => image.index}
-                    = image.file_field :content, class: 'js-file'
+              
+                .js-file_group{"data-index": i.index}
+                  = i.file_field :content, class: 'js-file'
                 -# .newmain__container__group__row__main__images__content
                 -#   .newmain__container__group__row__main__images__content__preview
                 -#     = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
