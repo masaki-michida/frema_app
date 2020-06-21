@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_210157) do
   end
 
   add_foreign_key "categories", "sub_categories"
-  add_foreign_key "images", "items"
+  add_foreign_key "images", "items", on_update: :cascade, on_delete: :cascade
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "prefectures"
