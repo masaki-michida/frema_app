@@ -25,4 +25,7 @@ class PurchaseController < ApplicationController
   redirect_to action: 'done'
   end
 
+  def done
+    @item = Item.find(params[:item_id])
+
 end
