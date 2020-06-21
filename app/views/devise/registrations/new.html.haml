@@ -13,7 +13,7 @@
           =f.email_field :email, autocomplete: "email"
           .span
             = resource.errors.full_messages_for(:email)[0]
-        
+
       %tr
         %td
           パスワード
@@ -22,7 +22,7 @@
           = f.password_field :password, autocomplete: "new-password"
           .span
             = resource.errors.full_messages_for(:password)[0]
-        
+
       %tr
         %td
           確認用パスワード
@@ -31,7 +31,7 @@
           = f.password_field :password_confirmation, autocomplete: "new-password"
           .span
             = resource.errors.full_messages_for(:password_confirmation)[0]
-          
+
       %tr
         %td
           ニックネーム
@@ -75,7 +75,7 @@
           .span
             = resource.errors.full_messages_for(:first_ch)[0]
         %tr
-      
+
       %tr
         %td
           = f.label :birth, '生年月日'
@@ -88,7 +88,7 @@
       %tr
         %td
           商品送付先確認情報
-        
+
       %tr
         %td
           （姓）
@@ -104,9 +104,9 @@
           = f.text_field :to_firstname
           .span
             = resource.errors.full_messages_for(:to_firstname)[0]
-      
-      
-      
+
+
+
       %tr
         %td
           （姓）ふりがな
@@ -122,7 +122,7 @@
           = f.text_field :to_first_ch
           .span
             = resource.errors.full_messages_for(:to_first_ch)[0]
-      
+
       %tr
         %td
           郵便番号
@@ -137,10 +137,11 @@
           都道府県
           .span必須
         %td
-          = f.text_field :prefecture_id
+          - @prefectures = Prefecture.pluck(:name,:id)
+          = f.select(:prefecture_id,@prefectures,id: "item_prefecture")
           .span
             = resource.errors.full_messages_for(:prefecture_id)[0]
-      
+
       %tr
         %td
           市町村
@@ -149,7 +150,7 @@
           = f.text_field :adress_city
           .span
             = resource.errors.full_messages_for(:adress_city)[0]
-      
+
       %tr
         %td
           番地
@@ -158,13 +159,13 @@
           = f.text_field :adress_street
           .span
             = resource.errors.full_messages_for(:adress_street)[0]
-      
+
       %tr
         %td
           マンション名・部屋番号
         %td
           = f.text_field :adress_building
-      
+
       %tr
         %td
           電話番号

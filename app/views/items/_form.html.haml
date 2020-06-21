@@ -46,7 +46,7 @@
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.select(:condition, id: "item_condition") do
-                    = options_for_select ({"今日中": 1,"来年": 2})
+                    = options_for_select ({"新品、未使用":1,"未使用に近い":2,"目立った傷や汚れなし":3,"やや傷や汚れあり":4,"傷や汚れあり":5,"全体的に状態が悪い":6})
               .newmain__container__group__row__main__forms__separater
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
@@ -54,20 +54,20 @@
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.select(:delivery_fee, id: "item_delivery_fee") do
-                    = options_for_select ({"今日中": 1,"来年": 2})
+                    = options_for_select ({"出品者": 1,"購入者": 2})
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 発送元の地域
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
-                  = f.select(:prefecture_id,@prefectures,id: "item_prefecture",prompt: "選択してください")
+                  = f.select(:prefecture_id,@prefectures,id: "item_prefecture",prompt: "#{Prefecture.find(current_user.prefecture_id).name}")
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 配送日の目安
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.select(:lag, id: "item_lag") do
-                    = options_for_select ({"今日中": 1,"来年": 2})
+                    = options_for_select ({"支払い後、1~2日で発送": 1,"支払い後、2~3日で発送": 2,"支払い後、4~7日で発送": 3})
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 商品価格

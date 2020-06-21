@@ -57,7 +57,11 @@
                     全体的に状態が悪い
               %tr
                 %th 配送料の負担
-                %td 配送料の負担？
+                %td
+                  -if @item.delivery_fee == 1
+                    出品者
+                  -elsif @item.delivery_fee == 2
+                    購入者
               %tr
                 %th 発送元の地域
                 %td
