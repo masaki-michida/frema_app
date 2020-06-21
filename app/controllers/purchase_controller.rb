@@ -27,5 +27,7 @@ class PurchaseController < ApplicationController
 
   def done
     @item = Item.find(params[:item_id])
+    @item.update(status: 2)
+  end
 
 end
