@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.includes(:images).find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
+    @item = Item.includes(:images).find(params[:id])
     if @item.update(item_params)
       redirect_to item_path(params[:id])
     else
@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
       :statement,
       [:category_id, :id], [:prefecture_id, :id],
       [:brand_id, :id],:condition, :delivery_fee ,
-      :lag, images_attributes: [:content],
+      :lag, images_attributes: [:content,:id],
     ).merge(
       user_id: current_user.id,
       status: 1

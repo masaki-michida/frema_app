@@ -11,6 +11,7 @@
       &__itemBox{
         background-color: #fff;
         padding: 24px 40px 40px;
+        position: relative;
 
 
         
@@ -34,9 +35,28 @@
               align-items: center;
               margin: $center;
 
-              &--img{
+              #imagePreview{
                 object-fit: cover;
                 height: 346px;
+              }
+
+              #prev{
+                position: absolute;
+                left: 20px;
+                top :25%;
+                &:hover{
+                  opacity: 70%;
+                }
+              }
+
+              #next{
+                position: absolute;
+                right: 20px;
+                top :25%;
+                
+                &:hover{
+                  opacity: 70%;
+                }
               }
 
               ul{
@@ -201,9 +221,7 @@
                   display: flex;
                   align-items: center;
                   justify-content: space-between;
-                  li{
-
-                  }
+                  
                 }
                 p{
                   font-size: 10px;
