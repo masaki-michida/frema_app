@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @item = Item.includes(:images).find(params[:id])
     @categories = TopCategory.pluck(:name,:id)
     @brands = Brand.pluck(:name,:id)
     @prefectures = Prefecture.pluck(:name,:id)
