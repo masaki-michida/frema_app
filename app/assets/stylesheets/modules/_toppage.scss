@@ -5,7 +5,7 @@
   &__btn{
     display: flex;
     margin: 24px 0 0 0;
-    
+
 
     &__logo{
 
@@ -92,7 +92,7 @@
   &__intro{
     padding: 60px 20px;
 
-    
+
     &__ul{
       text-align: center;
       display: flex;
@@ -102,6 +102,7 @@
 
       &__li{
       width: 30%;
+      height: 215px;
       margin: 16px 5% 0 0;
       text-align: left;
       display: flex;
@@ -232,7 +233,7 @@
       padding-top: 80px;
       background-color: $smoke;
       height: 100%;
-      
+
       h2:after{
         content: none;
       }
@@ -279,20 +280,22 @@
                 background-color:  $white;
                 display: inline-block;
                 text-decoration: none;
+                @include wid_hei(100%,100%);
 
-              &--img{
-                @include wid_hei(220px,150px);
-                position: relative;
-                overflow: hidden;
-                margin: 0;
+              //&--img{
+              //  @include wid_hei(220px,150px);
+              //  position: relative;
+              //  overflow: hidden;
+              //  margin: 0;
                 // z-index: auto;
 
                 img{
+                  width: 220px;
                   height: 150px;
                   object-fit: cover;
                 }
 
-              }
+              //}
 
               &--body{
                 padding: 16px;

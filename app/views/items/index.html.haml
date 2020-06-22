@@ -84,7 +84,6 @@
         -@items_c.each do |item|
           .main__pickup__products__lists__li
             = link_to(item_path(item.id),class: 'main__pickup__products__lists__li__a') do
-              %figure.main__pickup__products__lists__li__a--img
               -if item.images[0]
                 = image_tag item.images[0].content.url
               .main__pickup__products__lists__li__a--body
@@ -108,7 +107,6 @@
         -@items_b.each do |item|
           .main__pickup__products__lists__li
             = link_to(item_path(item.id),class: 'main__pickup__products__lists__li__a') do
-              %figure.main__pickup__products__lists__li__a--img
               -if item.images[0]
                 = image_tag item.images[0].content.url
               .main__pickup__products__lists__li__a--body
