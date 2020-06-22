@@ -1,7 +1,7 @@
-$(document).on('turbolinks:load', ()=> {
+$(document).on('turbolinks:load', function() {
   // 画像用のinputを生成する関数
-  const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="js-file_group">
+  var buildFileField = function(num) {
+    var html = `<div data-index="${num}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="item[images_attributes][${num}][content]"
                     id="item_images_attributes_${num}_content"><br>
@@ -10,13 +10,13 @@ $(document).on('turbolinks:load', ()=> {
     return html;
   }
   // プレビュー用のimgタグを生成する関数
-  const buildImg = (index, url)=> {
-    const html = `<label for="item_images_attributes_${index}_content"><img data-index="${index}" src="${url}" width="200px" height="200px"></label>`;
+  var buildImg = function(index, url) {
+    var html = `<label for="item_images_attributes_${index}_content"><img data-index="${index}" src="${url}" width="200px" height="200px"></label>`;
     return html;
   }
 
   // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  var fileIndex = [1,2,3,4,5,6,7,8,9,10];
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
@@ -24,10 +24,10 @@ $(document).on('turbolinks:load', ()=> {
   $('.hidden-destroy').hide();
 
   $('#image-box').on('change', '.js-file', function(e) {
-    const targetIndex = $(this).parent().data('index');
+    var targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
-    const file = e.target.files[0];
-    const blobUrl = window.URL.createObjectURL(file);
+    var file = e.target.files[0];
+    var blobUrl = window.URL.createObjectURL(file);
 
     // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
@@ -43,9 +43,9 @@ $(document).on('turbolinks:load', ()=> {
   });
 
   $('#image-box').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index');
+    var targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    var hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
