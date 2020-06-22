@@ -10,6 +10,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @category = Category.find(@item.category_id)
+    @subcategory = SubCategory.find(@category.sub_category_id)
+    @topcategory = TopCategory.find(@subcategory.top_category_id)
   end
 
   def new
@@ -55,10 +58,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(
-      :name, :status, :price, 
-      :statement, 
-      [:category_id, :id], [:prefecture_id, :id], 
-      [:brand_id, :id],:condition, :delivery_fee , 
+      :name, :status, :price,
+      :statement,
+      [:category_id, :id], [:prefecture_id, :id],
+      [:brand_id, :id],:condition, :delivery_fee ,
       :lag, images_attributes: [:content, :_destroy, :id],
     ).merge(
       user_id: current_user.id,
