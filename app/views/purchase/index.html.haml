@@ -1,6 +1,6 @@
 %h2 購入を確定しますか？
 %p
-  =User.find(@item.user_id).name
+  =User.find(@item.user_id).nickname
 %p
   =@item.name
 =image_tag @item.images[0].content.url
