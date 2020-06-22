@@ -10,6 +10,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @previous = Item.where(id: params[:id].to_i + 1..Float::INFINITY).where(status: 1).limit(1)[0]
+    @next = Item.where(id: -Float::INFINITY..params[:id].to_i - 1).where(status: 1).limit(1)[0]
   end
 
   def new
@@ -55,10 +57,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(
-      :name, :status, :price, 
-      :statement, 
-      [:category_id, :id], [:prefecture_id, :id], 
-      [:brand_id, :id],:condition, :delivery_fee , 
+      :name, :status, :price,
+      :statement,
+      [:category_id, :id], [:prefecture_id, :id],
+      [:brand_id, :id],:condition, :delivery_fee ,
       :lag, images_attributes: [:content, :_destroy, :id],
     ).merge(
       user_id: current_user.id,
