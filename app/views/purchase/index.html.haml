@@ -1,15 +1,19 @@
 %center
   %h2 購入を確定しますか？
+  %h5 出品者
   %p
     =User.find(@item.user_id).nickname
+  %h5 商品
   %p
     =@item.name
   =image_tag @item.images[0].content.url
+  %h5 価格
   %p
     =@item.price
     円
   %br
   %h3 支払い方法
+  %p クレジットカード
   - if @default_card_information.blank?
     %br /
   - else
