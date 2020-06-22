@@ -34,9 +34,12 @@
               width: 560px;
               align-items: center;
               margin: $center;
+              height: 500px;
 
               #preview{
+                height: 400px;
                 width: 65%;
+                object-fit: fit;
               }
 
               #imagePreview{
@@ -201,6 +204,7 @@
                 height: 150px;
                 object-fit: cover;
                 position: absolute;
+                width: 100%;
               }
             }
 
