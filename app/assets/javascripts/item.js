@@ -40,7 +40,7 @@ $(document).on('turbolinks:load', function() {
   $('#image-box').on('click', '.js-remove', function() {
     var targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
-    var hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    var hiddenCheck = $('input[data-index="${targetIndex}"].hidden-destroy');
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
