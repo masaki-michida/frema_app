@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @categories = TopCategory.pluck(:name,:id)
+    @categories = Category.pluck(:name,:id)
     @brands = Brand.pluck(:name,:id)
     @prefectures = Prefecture.pluck(:name,:id)
   end
@@ -55,10 +55,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(
-      :name, :status, :price, 
-      :statement, 
-      [:category_id, :id], [:prefecture_id, :id], 
-      [:brand_id, :id],:condition, :delivery_fee , 
+      :name, :status, :price,
+      :statement,
+      [:category_id, :id], [:prefecture_id, :id],
+      [:brand_id, :id],:condition, :delivery_fee ,
       :lag, images_attributes: [:content],
       images_attributes: [:id],
     ).merge(
@@ -66,6 +66,5 @@ class ItemsController < ApplicationController
       status: 1
     )
   end
-  
-end
 
+end
