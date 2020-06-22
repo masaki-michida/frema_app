@@ -37,10 +37,11 @@
                   =@subcategory.name
                   >>
                   =@category.name
-              %tr
-                %th ブランド
-                %td
-                  =Brand.find(@item.brand_id).name if @item.brand_id
+              -if @item.brand_id
+                %tr
+                  %th ブランド
+                  %td
+                    =Brand.find(@item.brand_id).name
               %tr
                 %th 商品の状態
                 %td

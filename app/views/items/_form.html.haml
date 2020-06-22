@@ -45,7 +45,7 @@
                   %label.newmain__container__group__row__main__forms__wrapper__title--label ブランド
                   %span.newmain__container__group__row__main__forms__wrapper__title--require
                 .newmain__container__group__row__main__forms__wrapper__form
-                  = f.select(:brand_id,@brands,prompt: "なし",id: "item_brand")
+                  = f.select(:brand_id,@brands,include_blank: "なし",id: "item_brand")
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 商品の状態
