@@ -9,13 +9,13 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.includes(:images).find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def new
     @item = Item.new
     @item.images.new
-    @categories = TopCategory.pluck(:name,:id)
+    @categories = Category.pluck(:name,:id)
     @brands = Brand.pluck(:name,:id)
     @prefectures = Prefecture.pluck(:name,:id)
   end
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @item = Item.includes(:images).find(params[:id])
     @categories = TopCategory.pluck(:name,:id)
     @brands = Brand.pluck(:name,:id)
     @prefectures = Prefecture.pluck(:name,:id)
@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
+    @item = Item.includes(:images).find(params[:id])
     if @item.update(item_params)
       redirect_to item_path(params[:id])
     else
@@ -65,6 +65,5 @@ class ItemsController < ApplicationController
       status: 1
     )
   end
-  
-end
 
+end

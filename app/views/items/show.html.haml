@@ -8,11 +8,11 @@
           %ul.show__main__content__wrapper__itemBox__images__ul
           -if @item.images[0]
             %li.show__main__content__wrapper__itemBox__images__ul__li
-              = image_tag @item.images[0].content.url
-              %ul
-                -@item.images.each do |image|
+              = image_tag @item.images[0].content.url, id: "preview"
+              %ul#imageList
+                -@item.images.each_with_index do |image,i|
                   %li
-                    = image_tag image.content.url, alt: 'item-img1'
+                    = image_tag image.content.url, alt: 'item-img1',id: "listImages#{i}"
         .show__main__content__wrapper__itemBox__price
           %span
             =@item.price
@@ -57,7 +57,11 @@
                     全体的に状態が悪い
               %tr
                 %th 配送料の負担
-                %td 配送料の負担？
+                %td
+                  -if @item.delivery_fee == 1
+                    出品者
+                  -elsif @item.delivery_fee == 2
+                    購入者
               %tr
                 %th 発送元の地域
                 %td

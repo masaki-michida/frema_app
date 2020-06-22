@@ -85,7 +85,7 @@
           .main__pickup__products__lists__li
             = link_to(item_path(item.id),class: 'main__pickup__products__lists__li__a') do
               %figure.main__pickup__products__lists__li__a--img
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png'
+                = image_tag item.images[0].content.url
               .main__pickup__products__lists__li__a--body
                 %h3
                   =item.name
@@ -108,7 +108,7 @@
           .main__pickup__products__lists__li
             = link_to(item_path(item.id),class: 'main__pickup__products__lists__li__a') do
               %figure.main__pickup__products__lists__li__a--img
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png'
+                = image_tag item.images[0].content.url
               .main__pickup__products__lists__li__a--body
                 %h3
                   =item.name
