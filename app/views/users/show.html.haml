@@ -1,5 +1,11 @@
-= @user.nickname
-さんのマイページ
+%h4 #{@user.nickname}さんのマイページ
+
+.item_list
+  %h1 出品商品
+  - Item.where(user_id: current_user.id).each do |item|
+    .item_list__an-item
+      =link_to item_path(item.id) do
+        =item.name
 
 %section.newmain__container__group__row__side
   .newmain__container__group__row__side__bar
@@ -11,9 +17,3 @@
         = link_to('クレジットカード登録', {},class: 'newmain__container__group__row__side__bar__inner__lists--a')
         = link_to('ログアウト', destroy_user_session_path, method: :delete, class: 'newmain__container__group__row__side__bar__inner__lists--a')
 
-.item_list
-  %h1 出品商品
-  - Item.where(user_id: current_user.id).each do |item|
-    .item_list__an-item
-      =link_to item_path(item.id) do
-        =item.name
