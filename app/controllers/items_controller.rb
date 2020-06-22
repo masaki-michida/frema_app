@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if @item.images[0]&&@item.save
       redirect_to item_path(@item.id)
     else
       render :new
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.includes(:images).find(params[:id])
-    if @item.update(item_params)
+    if @item.images[0]&&@item.update(item_params)
       redirect_to item_path(params[:id])
     else
       render :new
