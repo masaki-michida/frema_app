@@ -9,7 +9,7 @@
           -if @item.images[0]
             %li.show__main__content__wrapper__itemBox__images__ul__li
               = image_tag @item.images[0].content.url, id: "preview"
-              %ul.#imageList
+              %ul#imageList
                 -@item.images.each_with_index do |image,i|
                   %li
                     = image_tag image.content.url, alt: 'item-img1',id: "listImages#{i}"
