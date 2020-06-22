@@ -42,9 +42,6 @@
                 %td
                   =Brand.find(@item.brand_id).name if @item.brand_id
               %tr
-                %th サイズ
-                %td サイズがあれば表示
-              %tr
                 %th 商品の状態
                 %td
                   -if @item.condition == 1
