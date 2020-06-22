@@ -1,6 +1,10 @@
-%h2 購入が完了しました！
-%p
-  =@item.name
-%p
-  =@item.price
-  円
+%center
+  %h2 購入が完了しました！
+  %p
+    =User.find(@item.user_id).nickname
+  %p
+    =@item.name
+  =image_tag @item.images[0].content.url 
+  %p
+    =@item.price
+    円

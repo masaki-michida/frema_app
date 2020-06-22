@@ -26,7 +26,7 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    @item = Item.find(params[:item_id])
+    @item = Item.includes(:imagess).find(params[:item_id])
     @item.update(status: 2)
   end
 
