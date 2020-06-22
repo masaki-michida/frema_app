@@ -37,6 +37,7 @@
 
         &__main{
           padding: 0 0 0 40px;
+          width:800px;
 
 
           &__images{
@@ -44,6 +45,7 @@
             margin: 0 -8px 32px -8px;
             overflow: hidden;
             display: flex;
+            
 
             &__content{
 
@@ -164,4 +166,9 @@
       }
     }
   }
+}
+#previews{
+  height:200px;
+  border: 1px solid;
+  background-color:white;
 }
