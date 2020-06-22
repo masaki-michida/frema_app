@@ -45,7 +45,7 @@ $(document).on('turbolinks:load', function() {
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
     $(this).parent().remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
+    $('img[data-index="${targetIndex}"]').remove();
 
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
