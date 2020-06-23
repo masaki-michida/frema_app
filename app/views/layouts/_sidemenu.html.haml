@@ -5,5 +5,5 @@
       .newmain__container__group__row__side__bar__inner__lists
         = link_to('トップページ','/',class: 'newmain__container__group__row__side__bar__inner__lists--a')
         = link_to('商品出品',new_item_path,class: 'newmain__container__group__row__side__bar__inner__lists--a')
-        = link_to('クレジットカード登録', {},class: 'newmain__container__group__row__side__bar__inner__lists--a')
+        = link_to('クレジットカード登録', new_card_path,class: 'newmain__container__group__row__side__bar__inner__lists--a')
         = link_to('ログアウト', destroy_user_session_path, method: :delete, class: 'newmain__container__group__row__side__bar__inner__lists--a')
