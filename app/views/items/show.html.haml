@@ -79,14 +79,16 @@
                     支払い後、4~7日で発送
       .show__main__content__wrapper__links
         %ul.show__main__content__wrapper__links__items
-          %li.show__main__content__wrapper__links__items__previous
-            = link_to(item_path(@item.id - 1), {}) do
-              %i.fa.fa-angle-left
-              %span 前の商品
-          %li.show__main__content__wrapper__links__items__next
-            = link_to(item_path(@item.id + 1), {}) do
-              %span 次の商品
-              %i.fa.fa-angle-right
+          -if @previous
+            %li.show__main__content__wrapper__links__items__previous
+              = link_to(item_path(@previous.id)) do
+                %i.fa.fa-angle-left
+                %span 前の商品
+          -if @next
+            %li.show__main__content__wrapper__links__items__next
+              = link_to(item_path(@next.id)) do
+                %span 次の商品
+                %i.fa.fa-angle-right
         .show__main__content__wrapper__links__related
           = link_to("カテゴリーへ飛ぶ",item_path,class: 'show__main__content__wrapper__links__related__category')
           .show__main__content__wrapper__links__related__lists
