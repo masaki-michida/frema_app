@@ -27,9 +27,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.images[0]&&@item.save
+    if @item.save&&@item.images[0]
       redirect_to item_path(@item.id)
     else
+      @item.images.new
+      @categories = Category.pluck(:name,:id)
+      @brands = Brand.pluck(:name,:id)
+      @prefectures = Prefecture.pluck(:name,:id)
       render :new
     end
   end
@@ -44,10 +48,13 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.includes(:images).find(params[:id])
-    if @item.images[0]&&@item.update(item_params)
+    if @item.update(item_params)&&@item.images[0]
       redirect_to item_path(params[:id])
     else
-      render :new
+      @categories = TopCategory.pluck(:name,:id)
+      @brands = Brand.pluck(:name,:id)
+      @prefectures = Prefecture.pluck(:name,:id)
+      render :edit
     end
   end
 

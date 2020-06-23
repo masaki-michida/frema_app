@@ -28,12 +28,18 @@
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.text_field(:name, maxlength: 40, placeholder: "40文字まで",id: "item_name")
+                  -if @item.errors[:name].any?
+                    %font(color="red")
+                      ※未入力です
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 商品説明
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.text_area(:statement, maxlength: 1000, placeholder: "色素材重さ注意点などを記載しましょう(1000文字まで)\n例、先週買ってきたセーターですサイズ大きすぎて合わないので出品します",id: "item_statement")
+                  -if @item.errors[:statement].any?
+                    %font(color="red")
+                      ※未入力です
               .newmain__container__group__row__main__forms__separater
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
@@ -41,6 +47,9 @@
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.select(:category_id,@categories,prompt: true,id: "item_category")
+                  -if @item.errors[:category_id].any?
+                    %font(color="red")
+                      ※未選択です
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label ブランド
@@ -54,6 +63,9 @@
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.select(:condition,"",prompt: true,id: "item_condition") do
                     = options_for_select ({"新品、未使用":1,"未使用に近い":2,"目立った傷や汚れなし":3,"やや傷や汚れあり":4,"傷や汚れあり":5,"全体的に状態が悪い":6})
+                  -if @item.errors[:condition].any?
+                    %font(color="red")
+                      ※未選択です
               .newmain__container__group__row__main__forms__separater
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
@@ -62,13 +74,18 @@
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.select(:delivery_fee,"",prompt: true ,id: "item_delivery_fee") do
                     = options_for_select ({"出品者": 1,"購入者": 2})
+                  -if @item.errors[:condition].any?
+                    %font(color="red")
+                      ※未選択です
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 発送元の地域
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
-                  = f.select(:prefecture_id,@prefectures,prompt: true, id: "item_prefecture")
-                  -# = f.select(:prefecture_id,@prefectures,id: "item_prefecture",selected: Prefecture.find(current_user.prefecture_id).id)
+                  = f.select(:prefecture_id,@prefectures,id: "item_prefecture",selected: Prefecture.find(current_user.prefecture_id).id)
+                  -if @item.errors[:condition].any?
+                    %font(color="red")
+                      ※未選択です
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 配送日の目安
@@ -76,12 +93,18 @@
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.select(:lag,"",prompt: true,id: "item_lag") do
                     = options_for_select ({"支払い後、1~2日で発送": 1,"支払い後、2~3日で発送": 2,"支払い後、4~7日で発送": 3})
+                  -if @item.errors[:condition].any?
+                    %font(color="red")
+                      ※未選択です
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 商品価格
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.text_field(:price, maxlength: 40, placeholder: "10000",id: "item_price")
+                  -if @item.errors[:condition].any?
+                    %font(color="red")
+                      ※未入力です
               .newmain__container__group__row__main__forms__separater
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
