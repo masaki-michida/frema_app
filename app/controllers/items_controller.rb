@@ -13,8 +13,8 @@ class ItemsController < ApplicationController
     @category = Category.find(@item.category_id)
     @subcategory = SubCategory.find(@category.sub_category_id)
     @topcategory = TopCategory.find(@subcategory.top_category_id)
-    @previous = Item.where(id: params[:id].to_i + 1..Float::INFINITY).where(status: 1).limit(1)[0]
-    @next = Item.where(id: -Float::INFINITY..params[:id].to_i - 1).where(status: 1).limit(1)[0]
+    @next = Item.where(id: params[:id].to_i + 1..Float::INFINITY).where(status: 1).limit(1)[0]
+    @previous = Item.where(id: -Float::INFINITY..params[:id].to_i - 1).where(status: 1).limit(1)[0]
   end
 
   def new
