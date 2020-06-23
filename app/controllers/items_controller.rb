@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
     if @item.save&&@item.images[0]
       redirect_to item_path(@item.id)
     else
+      @item.images.new
       @categories = Category.pluck(:name,:id)
       @brands = Brand.pluck(:name,:id)
       @prefectures = Prefecture.pluck(:name,:id)
