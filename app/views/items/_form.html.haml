@@ -4,7 +4,7 @@
       .newmain__container__group__row
         = render 'layouts/sidemenu'
         .newmain__container__group__row__main
-          = form_with model: @item  do |f|
+          = form_with model: @item ,local:true do |f|
             #image-box
               #previews
                 - if @item.persisted?
@@ -67,7 +67,7 @@
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 発送元の地域
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
-                  = f.select(:prefecture_id,@prefectures,id: "item_prefecture")
+                  = f.select(:prefecture_id,@prefectures,prompt: true, id: "item_prefecture")
                   -# = f.select(:prefecture_id,@prefectures,id: "item_prefecture",selected: Prefecture.find(current_user.prefecture_id).id)
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
