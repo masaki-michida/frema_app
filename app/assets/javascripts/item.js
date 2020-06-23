@@ -1,12 +1,12 @@
 $(document).on('turbolinks:load', function() {
   // 画像用のinputを生成する関数
   var buildFileField = function(num) {
-    var html = `<div data-index="${num}" class="js-file_group"><input class="js-file" type="file"name="item[images_attributes][${num}][content]"id="item_images_attributes_${num}_src"><br><div class="js-remove">削除</div></div>`;
+    var html = `<div data-index="${num}" class="js-file_group"><input class="js-file" type="file"name="item[images_attributes][${num}][content]"id="item_images_attributes_${num}_content"><br><div class="js-remove">削除</div></div>`;
     return html;
   }
   // プレビュー用のimgタグを生成する関数
   var buildImg = function(index, url) {
-    var html =`<label for="item_images_attributes_${index}_src"><img data-index="${index}" src="${url}" width="180px" height="180px"></label>`;
+    var html =`<label for="item_images_attributes_${index}_content"><img data-index="${index}" src="${url}" width="200px" height="200px"></label>`;
     return html;
   }
 
