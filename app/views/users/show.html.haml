@@ -3,24 +3,22 @@
 .item_list
     %h1 出品商品
     - Item.includes(:images).where(user_id: current_user.id).each do |item|
-      .main__pickup__products__lists
-        -@items_c.each do |item|
-          .main__pickup__products__lists__li
-            = link_to(item_path(item.id),class: 'main__pickup__products__lists__li__a') do
-              -if item.images[0]
-                = image_tag item.images[0].content.url
-              .main__pickup__products__lists__li__a--body
-                %h3
-                  =item.name
-                .main__pickup__products__lists__li__a--body__details
-                  %ul
-                    %li
-                      =item.price
-                      円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      0
-                  %p (税込)
+      .main__pickup__products__lists__li
+        = link_to(item_path(item.id),class: 'main__pickup__products__lists__li__a') do
+          -if item.images[0]
+            = image_tag item.images[0].content.url
+          .main__pickup__products__lists__li__a--body
+            %h3
+              =item.name
+            .main__pickup__products__lists__li__a--body__details
+              %ul
+                %li
+                  =item.price
+                  円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
 
 %section.newmain__container__group__row__side
   .newmain__container__group__row__side__bar
