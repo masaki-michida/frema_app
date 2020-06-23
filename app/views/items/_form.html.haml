@@ -4,23 +4,22 @@
       .newmain__container__group__row
         = render 'layouts/sidemenu'
         .newmain__container__group__row__main
-          = form_with model: @item ,local:true do |f|
-            #image-box
-              #previews
-                - if @item.persisted?
-                  - @item.images.each_with_index do |image, i|
-                    = image_tag image.content.url, data: { index: i }, width: "180", height: '180'
-              = f.fields_for :images do |image|
-                .js-file_group{"data-index": image.index}
-                  = image.file_field :content, class: 'js-file'
-                  .js-remove 削除
-                - if @item.persisted?
-                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-              - if @item.persisted?
-                .js-file_group{"data-index" => "#{@item.images.count}"}
-                  = file_field_tag :content, name: "item[images_attributes][#{@item.images.count}][content]", class: 'js-file'
-                  .js-remove 削除
-
+          = form_with model: @item do |f|
+            -# .newmain__container__group__row__main__images
+              -# -4.times do
+            = f.fields_for :images do |i|
+              #image-box
+                #previews
+                  -# = image_tag "dummy.png", alt: "search-logo.svg",width: '187px',height: '187px'
+              
+                .js-file_group{"data-index": i.index}
+                  = i.file_field :content, class: 'js-file'
+                -# .newmain__container__group__row__main__images__content
+                -#   .newmain__container__group__row__main__images__content__preview
+                -#     = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
+                -#   .newmain__container__group__row__main__images__content__picker
+                -#     = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
+                -#       = i.file_field(:content,id:"item_image")
             .newmain__container__group__row__main__forms
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
@@ -67,8 +66,7 @@
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 発送元の地域
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
-                  = f.select(:prefecture_id,@prefectures,prompt: true, id: "item_prefecture")
-                  -# = f.select(:prefecture_id,@prefectures,id: "item_prefecture",selected: Prefecture.find(current_user.prefecture_id).id)
+                  = f.select(:prefecture_id,@prefectures,id: "item_prefecture",selected: Prefecture.find(current_user.prefecture_id).id)
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 配送日の目安
