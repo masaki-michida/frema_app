@@ -4,15 +4,16 @@ h4 {
 }
 
 .item_list {
+  width: 75vw;
   margin-top: 50px;
-  text-align: center;
-  
+  padding-left: 50px;
+  float: right;
+
+  h1 {
+    font-weight: bold;
+  }
 }
 
 .item_list__an-item {
   margin-top: 20px;
-}
-
-h1 {
-  font-weight: bold;
 }
