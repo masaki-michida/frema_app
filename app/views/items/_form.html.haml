@@ -4,22 +4,23 @@
       .newmain__container__group__row
         = render 'layouts/sidemenu'
         .newmain__container__group__row__main
-          = form_with model: @item, local: true do |f|
-            -# .newmain__container__group__row__main__images
-              -# -4.times do
-            = f.fields_for :images do |i|
-              #image-box
-                #previews
-                  -# = image_tag "dummy.png", alt: "search-logo.svg",width: '187px',height: '187px'
-              
-                .js-file_group{"data-index": i.index}
-                  = i.file_field :content, class: 'js-file'
-                -# .newmain__container__group__row__main__images__content
-                -#   .newmain__container__group__row__main__images__content__preview
-                -#     = image_tag('dummy.png', alt: 'search-logo.svg',width: '187px',height: '187px',class: '.newmain__container__group__row__main__images__preview--img')
-                -#   .newmain__container__group__row__main__images__content__picker
-                -#     = label("item_image",'',class: 'newmain__container__group__row__main__images__content__picker--btn') do
-                -#       = i.file_field(:content,id:"item_image")
+          = form_with model: @item ,local:true do |f|
+            #image-box
+              #previews
+                - if @item.persisted?
+                  - @item.images.each_with_index do |image, i|
+                    = image_tag image.content.url, data: { index: i }, width: "180", height: '180'
+              = f.fields_for :images do |image|
+                .js-file_group{"data-index": image.index}
+                  = image.file_field :content, class: 'js-file'
+                  .js-remove 削除
+                - if @item.persisted?
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+              - if @item.persisted?
+                .js-file_group{"data-index" => "#{@item.images.count}"}
+                  = file_field_tag :content, name: "item[images_attributes][#{@item.images.count}][content]", class: 'js-file'
+                  .js-remove 削除
+
             .newmain__container__group__row__main__forms
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
