@@ -1,8 +1,12 @@
 .footer{
+  height: 455px;
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
 
   a{
     color: $white;
-    
+
     &:hover{
       text-decoration: underline;
     }
@@ -17,7 +21,7 @@
   color: $white;
   background-color: #272727;
   text-align: center;
-  
+
   &__contents{
     max-width: 840px;
     margin: $center;
@@ -36,7 +40,7 @@
       }
 
       ul{
-        
+
         font-size: 12px;
         line-height: 32px;
       }

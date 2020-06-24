@@ -14,3 +14,11 @@
 @import "modules/items#show";
 @import "modules/buy_button";
 @import "modules/mypage";
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.main-wrapper {
+  padding-bottom: 455px;
+}
