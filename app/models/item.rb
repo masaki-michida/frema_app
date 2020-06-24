@@ -5,5 +5,7 @@ class Item < ApplicationRecord
 
   validates :name, :status, :price, :statement, :category_id, :prefecture_id, :user_id ,:condition, :delivery_fee , :lag, presence: true
 
+  validates_associated :images
+
   accepts_nested_attributes_for :images, allow_destroy: true
 end
