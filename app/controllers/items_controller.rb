@@ -27,10 +27,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save&&@item.images[0]
+    if @item.images[0]&&@item.save
       redirect_to item_path(@item.id)
     else
-      @item.images.new
+      @item.save
+      @item.images[0]
       @categories = Category.pluck(:name,:id)
       @brands = Brand.pluck(:name,:id)
       @prefectures = Prefecture.pluck(:name,:id)

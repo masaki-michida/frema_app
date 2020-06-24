@@ -4,7 +4,7 @@
       .newmain__container__group__row
         = render 'layouts/sidemenu'
         .newmain__container__group__row__main
-          = form_with model: @item ,local:true do |f|
+          = form_with model: @item ,local: true do |f|
             #image-box
               #previews
                 - if @item.persisted?
@@ -17,10 +17,9 @@
                 - if @item.persisted?
                   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
               - if @item.persisted?
-                .js-file_group{"data-index" => "#{@item.images.count}"}
+                .js-file_group{"data-index": "#{@item.images.count}"}
                   = file_field_tag :content, name: "item[images_attributes][#{@item.images.count}][content]", class: 'js-file'
                   .js-remove 削除
-
             .newmain__container__group__row__main__forms
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
@@ -83,9 +82,9 @@
                   %span.newmain__container__group__row__main__forms__wrapper__title--require ※必須
                 .newmain__container__group__row__main__forms__wrapper__form
                   = f.select(:prefecture_id,@prefectures,id: "item_prefecture",selected: Prefecture.find(current_user.prefecture_id).id)
-                  -if @item.errors[:condition].any?
-                    %font(color="red")
-                      ※未選択です
+                  -# -if @item.errors[:condition].any?
+                  -#   %font(color="red")
+                  -#     ※未選択です
               .newmain__container__group__row__main__forms__wrapper
                 .newmain__container__group__row__main__forms__wrapper__title
                   %label.newmain__container__group__row__main__forms__wrapper__title--label 配送日の目安
