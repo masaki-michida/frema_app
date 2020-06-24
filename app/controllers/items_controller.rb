@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save&&@item.images[0]
+    if @item.save
       redirect_to item_path(@item.id)
     else
       @item.images.new
@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.includes(:images).find(params[:id])
-    if @item.update(item_params)&&@item.images[0]
+    if @item.update(item_params)
       redirect_to item_path(params[:id])
     else
       @categories = TopCategory.pluck(:name,:id)
